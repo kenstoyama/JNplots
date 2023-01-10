@@ -1,30 +1,30 @@
 #' Calculation and visualization of regions of non-significance to assess the
 #' influence of categorical moderators
 #'
-#' Produces a plot showing which values of a continuous moderator have a 
-#' significant influence on the relationship between the dependent and 
-#' independent variables. 
+#' Produces a plot showing which values of a continuous moderator have a
+#' significant influence on the relationship between the dependent and
+#' independent variables.
 #' @param X A character string defining the name of the covariate (e.g., size in
-#'  an allometry analysis). Must be the same as the name of the variable in the 
+#'  an allometry analysis). Must be the same as the name of the variable in the
 #'  dataset (see argument “data”).
-#' @param g A character string defining the name of a categorical moderator 
+#' @param g A character string defining the name of a categorical moderator
 #'  (e.g., males and females, herbivorous and carnivorous, etc). Must be the same
 #'  as the name of the variable in the dataset (see argument “data”). The
 #'  variable must have two levels.
 #' @param data The dataset.
-#' @param phylo A logical. It indicates whether a phylogenetically-informed analysis 
+#' @param phylo A logical. It indicates whether a phylogenetically-informed analysis
 #'  will be performed (i.e., PGLS). “F” by default.
 #' @param tree A “phylo” class object. A phylogeny that must match the species in the data.
-#' @param plot.lim A logical. It indicates whether the plot should show the 
-#'  JN non-significance regions even if they don’t or just slightly overlap the data. 
+#' @param plot.lim A logical. It indicates whether the plot should show the
+#'  JN non-significance regions even if they don’t or just slightly overlap the data.
 #'  The default option is “F”, meaning that the plot limits will depend only on the data.
-#' @param cols A vector of strings defining the symbol colors to be used in the 
-#'  plot. By default, c(“black”, “black”) is used, which combines with the default 
+#' @param cols A vector of strings defining the symbol colors to be used in the
+#'  plot. By default, c(“black”, “black”) is used, which combines with the default
 #'  in the argument “sym” to present two groups of datapoints as open and close.
-#' @param sym A vector of strings defining the symbols to be used to represent 
-#'  distinct groups in the plot. Use same symbol codes as in the argument “pch” 
-#'  in the R base function “plot”. By default, “c(16, 1)” is used, which combines 
-#'  with the default in the argument “cols” to present two groups of datapoints 
+#' @param sym A vector of strings defining the symbols to be used to represent
+#'  distinct groups in the plot. Use same symbol codes as in the argument “pch”
+#'  in the R base function “plot”. By default, “c(16, 1)” is used, which combines
+#'  with the default in the argument “cols” to present two groups of datapoints
 #'  as open and close.
 #' @export
 #' jnt_cat()
@@ -42,17 +42,17 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
                na.action = na.omit)
     mod.out <- summary(mod)
   }
-  
+
   group1 <- data[ which(data[,g]==levs[1]), ]
   group2 <- data[ which(data[,g]==levs[2]), ]
-  
+
   n1 <- length(group1[,1])
   n2 <- length(group2[,1])
   X1 <- group1[,X]
   X2 <- group2[,X]
   Y1 <- group1[,Y]
   Y2 <- group2[,Y]
-  
+
   Fcvalue <- qf(.95, df1=1, df2=n1+n2-4)
   xmean1 <- mean(X1)
   xmean2 <- mean(X2)
@@ -64,20 +64,20 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
   sumy2 <- 0
   sumxy1 <- 0
   sumxy2 <- 0
-  
+
   xcoord_group1 <- X1    # X1
   ycoord_group1 <- Y1    # Y1
-  
+
   xcoord_group2 <- X2    # X2
   ycoord_group2 <- Y2    # Y2
-  
-  zx1 <- ((sum(xcoord_group1))^2)/n1
-  zx2 <- ((sum(xcoord_group2))^2)/n2
-  zy1 <- ((sum(ycoord_group1))^2)/n1
-  zy2 <- ((sum(ycoord_group2))^2)/n2
-  zxy1 <- ((sum(xcoord_group1))*(sum(ycoord_group1)))/n1
-  zxy2 <- ((sum(xcoord_group2))*(sum(ycoord_group2)))/n2
-  
+
+  zx1 <- ((sum(xcoord_group1,na.rm = T))^2)/n1
+  zx2 <- ((sum(xcoord_group2,na.rm = T))^2)/n2
+  zy1 <- ((sum(ycoord_group1,na.rm = T))^2)/n1
+  zy2 <- ((sum(ycoord_group2,na.rm = T))^2)/n2
+  zxy1 <- ((sum(xcoord_group1,na.rm = T))*(sum(ycoord_group1)))/n1
+  zxy2 <- ((sum(xcoord_group2,na.rm = T))*(sum(ycoord_group2)))/n2
+
   ######## sumx1 ########
   c <- 0
   while (c<n1) {
@@ -85,7 +85,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
     c <- c+1
   }
   sumx1
-  
+
   ######## sumx2 ########
   c <- 0
   while (c<n2) {
@@ -93,7 +93,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
     c <- c+1
   }
   sumx2
-  
+
   ######## sumy1 ########
   c <- 0
   while (c<n1) {
@@ -101,7 +101,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
     c <- c+1
   }
   sumy1
-  
+
   ######## sumy2 ########
   c <- 0
   while (c<n2) {
@@ -109,7 +109,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
     c <- c+1
   }
   sumy2
-  
+
   ######## sumxy1 ########
   c <- 0
   while (c<n1) {
@@ -117,7 +117,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
     c <- c+1
   }
   sumxy1
-  
+
   ######## sumxy2 ########
   c <- 0
   while (c<n2) {
@@ -125,15 +125,15 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
     c <- c+1
   }
   sumxy2
-  
+
   ########################
   ########################
   ########################
   ######## SSres ########
-  
+
   SSres <- (sumy1-(((sumxy1)^2)/sumx1))+(sumy2-(((sumxy2)^2)/sumx2))
   SSres
-  
+
   ########################
   ########################
   ########################
@@ -145,16 +145,16 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
   A <- (-Fcvalue/(n1+n2-4))*(SSres)*((1/sumx1)+(1/sumx2))+((b1-b2)^2)
   B <- (Fcvalue/(n1+n2-4))*(SSres)*((xmean1/sumx1)+(xmean2/sumx2))+((a1-a2)*(b1-b2))
   C <- (-Fcvalue/(n1+n2-4))*(SSres)*(((n1+n2)/(n1*n2))+(xmeansq1/sumx1)+(xmeansq2/sumx2))+((a1-a2)^2)
-  
+
   ########################
   xlower <- (-B-sqrt((B^2)-A*C))/A
   xupper <- (-B+sqrt((B^2)-A*C))/A
-  
+
   m <- c("It was not possible to calculate regions of non-significance. The difference between slopes might not be statistically significant")
   if(((B^2)-A*C)<0){
     warning(m)
   }
-  
+
   #### PLOT
   if(plot.full==T){
     min.lim <- min(data[,X],xlower)
@@ -177,7 +177,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
                                              max(data[,Y])*2,min(data[,Y])*0.5),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }
-  
+
   #
   if(((B^2)-A*C)<0){
     results <- list("coeff" = mod.out)

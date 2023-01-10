@@ -31,8 +31,7 @@
 
 jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),sym=c(16,1)){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$g)))
-  m1 <- c("Rows with missing data were removed
-          from the analysis")
+  m1 <- c("Rows with missing data were removed from the analysis")
   if(na_sum>0){
     warning(m1)
   }

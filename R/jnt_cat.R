@@ -75,8 +75,8 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
   zx2 <- ((sum(xcoord_group2,na.rm = T))^2)/n2
   zy1 <- ((sum(ycoord_group1,na.rm = T))^2)/n1
   zy2 <- ((sum(ycoord_group2,na.rm = T))^2)/n2
-  zxy1 <- ((sum(xcoord_group1,na.rm = T))*(sum(ycoord_group1)))/n1
-  zxy2 <- ((sum(xcoord_group2,na.rm = T))*(sum(ycoord_group2)))/n2
+  zxy1 <- ((sum(xcoord_group1,na.rm = T))*(sum(ycoord_group1,na.rm = T)))/n1
+  zxy2 <- ((sum(xcoord_group2,na.rm = T))*(sum(ycoord_group2,na.rm = T)))/n2
 
   ######## sumx1 ########
   c <- 0

@@ -30,6 +30,12 @@
 #' jnt_cat()
 
 jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),sym=c(16,1)){
+  na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$g)))
+  m1 <- c("There are missing data in the dataset. Rows with missing data were removed
+          from the analysis")
+  if(na_sum>0){
+    warning(m1)
+  }
   data <- data[complete.cases(data[ , c(X,Y,g)]), ]
   data[,g] <- as.factor(data[,g])
   levs <- levels(as.factor(droplevels(data[,g])))
@@ -151,9 +157,9 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
   xlower <- (-B-sqrt((B^2)-A*C))/A
   xupper <- (-B+sqrt((B^2)-A*C))/A
 
-  m <- c("It was not possible to calculate regions of non-significance. The difference between slopes might not be statistically significant")
+  m2 <- c("It was not possible to calculate regions of non-significance. The difference between slopes might not be statistically significant")
   if(((B^2)-A*C)<0){
-    warning(m)
+    warning(m2)
   }
 
   #### PLOT

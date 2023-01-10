@@ -30,6 +30,7 @@
 #' jnt_cat()
 
 jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),sym=c(16,1)){
+  data <- data[complete.cases(data[ , c(X,Y,g)]), ]
   data[,g] <- as.factor(data[,g])
   levs <- levels(as.factor(droplevels(data[,g])))
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))

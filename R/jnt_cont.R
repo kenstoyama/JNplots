@@ -78,7 +78,7 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree){
          col="black",lwd=1,lty=2)
   abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*max(data[,g],na.rm = T)),
          b=(mod.out$coefficients[2]+mod.out$coefficients[4]*max(data[,g],na.rm = T)),
-         col="black",lwd=1,lty=2)
+         col="black",lwd=1,lty=1)
   results <- list("coeff" = mod.out,"lower non-significance limit of moderator" = min(x1,x2),
                   "upper non-significance limit of moderator" = max(x1,x2),
                   "lower data limit" = valmin, "upper data limit" = valmax)

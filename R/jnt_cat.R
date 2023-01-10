@@ -1,7 +1,7 @@
 #' Calculation and visualization of regions of non-significance to assess the
 #' influence of categorical moderators
 #'
-#' Produces a plot showing which values of a continuous moderator have a
+#' Produces a plot showing which values of a categorical moderator have a
 #' significant influence on the relationship between the dependent and
 #' independent variables.
 #' @param X A character string defining the name of the covariate (e.g., size in

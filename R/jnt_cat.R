@@ -157,9 +157,9 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
   xupper <- (-B+sqrt((B^2)-A*C))/A
 
   m2 <- c("It was not possible to calculate regions of non-significance. The difference between slopes might not be statistically significant")
-  if(((B^2)-A*C)<0){
-    warning(m2)
-  }
+  #if(((B^2)-A*C)<0){
+  #  warning(m2)
+  #}
 
   #### PLOT
   if(plot.full==T){

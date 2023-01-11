@@ -17,6 +17,8 @@
 #'  analysis will be performed (i.e., PGLS). “F” by default.
 #' @param tree A “phylo” class object. A phylogeny that must match the species
 #'  in the data.
+#' @param res A numerical value that aids in the plotting of regions of (non)significance.
+#'  Default=100, higher numbers increase the intensity of colors
 #' @export
 #' jnt_cont()
 

@@ -20,7 +20,7 @@
 #' @export
 #' jnt_cont()
 
-jnt_cont <- function(X,Y,g,data,phylo=F,tree){
+jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100){
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
   mod.out <- mod
   if(phylo==T){
@@ -56,7 +56,7 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree){
   valmin <- min(data[,g],na.rm = T)
   val_max <- max(max(data[,g],na.rm = T),max(x1,x2))
   valmax <- max(data[,g],na.rm = T)
-  nn <- (val_max-val)/100
+  nn <- (val_max-val)/res
   aaa <- c()
   c <- 1
   while(val+nn<val_max){

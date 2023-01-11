@@ -19,6 +19,7 @@
 #'  in the data.
 #' @param res A numerical value that aids in the plotting of regions of (non)significance.
 #'  Default=100, higher numbers increase the intensity of colors
+#' @import scale
 #' @export
 #' jnt_cont()
 

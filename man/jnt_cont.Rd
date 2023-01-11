@@ -5,7 +5,7 @@
 \title{Calculation and visualization of regions of non-significance to assess the
 influence of continuous moderators}
 \usage{
-jnt_cont(X, Y, g, data, phylo = F, tree)
+jnt_cont(X, Y, g, data, phylo = F, tree, res = 100)
 }
 \arguments{
 \item{X}{A character string defining the name of the covariate (e.g., size in
@@ -26,6 +26,9 @@ analysis will be performed (i.e., PGLS). “F” by default.}
 
 \item{tree}{A “phylo” class object. A phylogeny that must match the species
 in the data.}
+
+\item{res}{A numerical value that aids in the plotting of regions of (non)significance.
+Default=100, higher numbers increase the intensity of colors}
 }
 \description{
 Produces a plot showing which values of a continuous moderator have a

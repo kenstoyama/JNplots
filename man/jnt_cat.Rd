@@ -49,7 +49,7 @@ JN non-significance regions even if they don’t or just slightly overlap the da
 The default option is “F”, meaning that the plot limits will depend only on the data.}
 }
 \description{
-Produces a plot showing which values of a continuous moderator have a
+Produces a plot showing which values of a categorical moderator have a
 significant influence on the relationship between the dependent and
 independent variables.
 }

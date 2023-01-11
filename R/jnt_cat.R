@@ -7,6 +7,8 @@
 #' @param X A character string defining the name of the covariate (e.g., size in
 #'  an allometry analysis). Must be the same as the name of the variable in the
 #'  dataset (see argument “data”).
+#' @param Y A character string defining the name of the dependent variable. Must
+#'  be the same as the name of the variable in the dataset (see argument “data”).
 #' @param g A character string defining the name of a categorical moderator
 #'  (e.g., males and females, herbivorous and carnivorous, etc). Must be the same
 #'  as the name of the variable in the dataset (see argument “data”). The

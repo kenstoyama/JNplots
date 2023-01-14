@@ -22,6 +22,9 @@ jnt_cat(
 an allometry analysis). Must be the same as the name of the variable in the
 dataset (see argument “data”).}
 
+\item{Y}{A character string defining the name of the dependent variable. Must
+be the same as the name of the variable in the dataset (see argument “data”).}
+
 \item{g}{A character string defining the name of a categorical moderator
 (e.g., males and females, herbivorous and carnivorous, etc). Must be the same
 as the name of the variable in the dataset (see argument “data”). The

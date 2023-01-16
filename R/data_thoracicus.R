@@ -11,7 +11,7 @@
 #'
 #' @keywords datasets
 #'
-#' @references Toyama et al. (2018) Genetics 195:1077-1086
+#' @references Toyama et al. (2018) Zoology 129:45-53
 #' (\href{https://pubmed.ncbi.nlm.nih.gov/30170747/}{PubMed})
 #'
 "data_thoracicus"

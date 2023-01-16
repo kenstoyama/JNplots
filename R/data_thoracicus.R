@@ -1,0 +1,22 @@
+#' Diet and morphology data for Microlophus thoracicus (Squamata: Tropiduridae)
+#'
+#' Data for head morphology and proportion of plant material in the diet
+#' of the lizard Microlophus thoracicus.
+#'
+#' @docType data
+#'
+#' @usage data(grav)
+#'
+#' @format An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.
+#'
+#' @keywords datasets
+#'
+#' @references Toyama et al. (2018) Genetics 195:1077-1086
+#' (\href{https://pubmed.ncbi.nlm.nih.gov/30170747/}{PubMed})
+#'
+#' @examples
+#' data(grav)
+#' times <- attr(grav, "time")
+#' phe <- grav$pheno
+#' \donttest{iplotCurves(phe, times)}
+"grav"

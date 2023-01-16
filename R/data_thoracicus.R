@@ -5,7 +5,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(grav)
+#' @usage data(data_thoracicus)
 #'
 #' @format An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.
 #'
@@ -14,9 +14,4 @@
 #' @references Toyama et al. (2018) Genetics 195:1077-1086
 #' (\href{https://pubmed.ncbi.nlm.nih.gov/30170747/}{PubMed})
 #'
-#' @examples
-#' data(grav)
-#' times <- attr(grav, "time")
-#' phe <- grav$pheno
-#' \donttest{iplotCurves(phe, times)}
-"grav"
+"data_thoracicus"

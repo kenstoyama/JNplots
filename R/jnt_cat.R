@@ -185,7 +185,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
                                              max(data[,Y])*2,min(data[,Y])*0.5),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }
-  legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/2.5), bty='n', xpd=NA,
+  legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/10), bty='n', xpd=NA,
          c(levs[1], levs[2]),
          pch=c(sym[1],sym[2]),cex=0.5,col=c(cols[1],cols[2]))
   if(((B^2)-A*C)<0){

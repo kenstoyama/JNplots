@@ -55,22 +55,45 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100){
 
   plot(data[,X],data[,Y],xlab=X,ylab=Y)
 
-  val <- min(min(data[,g],na.rm = T),min(x1,x2))
-  valmin <- min(data[,g],na.rm = T)
-  val_max <- max(max(data[,g],na.rm = T),max(x1,x2))
-  valmax <- max(data[,g],na.rm = T)
+  val <- min(min(data[,g],na.rm = T),min(x1,x2)) # minimum value to plot
+  valmin <- min(data[,g],na.rm = T) # minumum value in data
+  val_max <- max(max(data[,g],na.rm = T),max(x1,x2)) # maximum value to plot
+  valmax <- max(data[,g],na.rm = T) # maximum value in data
+
+  # test if significant values are inside or outside x1 and x2
+  inside_color <- "grey"
+  outside_color <- "lightblue"
+  test_x <- min(x1,x2)
+  list_b <- c()
+  inside_sig = T
+  nn <- (val_max-val)/res
+  c <- 1
+  while(test_x<=max(x1,x2)){
+    list_b[c] <- (mod.out$coefficients[2]+mod.out$coefficients[4]*test_x)
+    c <- c+1
+    test_x <- test_x+nn
+  }
+  if (min(list_b)<0 & max(list_b)>0){
+    inside_sig <- F
+  }
+
+  if (inside_sig==T){
+    inside_color <- "lightblue"
+    outside_color <- "grey"
+  }
+
   nn <- (val_max-val)/res
   aaa <- c()
   c <- 1
   while(val+nn<val_max){
     #if(val+nn>x2 & val+nn<x1){ #try changing to min(...) and max(...)
     if(val+nn>min(x1,x2) & val+nn<max(x1,x2)){
-      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha("lightblue",0.5))
+      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(inside_color,0.5))
       aaa[c] <- val
       val <- val+nn
       c <- c+1
     } else {
-      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha("grey",0.5))
+      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(outside_color,0.5))
       aaa[c] <- val
       val <- val+nn
       c <- c+1

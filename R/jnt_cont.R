@@ -65,12 +65,12 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100){
   while(val+nn<val_max){
     #if(val+nn>x2 & val+nn<x1){ #try changing to min(...) and max(...)
     if(val+nn>min(x1,x2) & val+nn<max(x1,x2)){
-      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha("grey",0.5))
+      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha("lightblue",0.5))
       aaa[c] <- val
       val <- val+nn
       c <- c+1
     } else {
-      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha("lightblue",0.5))
+      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha("grey",0.5))
       aaa[c] <- val
       val <- val+nn
       c <- c+1

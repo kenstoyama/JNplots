@@ -177,8 +177,8 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }else{
-    plot(data[,X],data[,Y],xlab=X,ylab=Y,type="n")
-    points(group1[,X],group1[,Y],col=cols[1],pch=sym[1])
+    plot(data[,X],data[,Y],xlab=X,ylab=Y,type="n",cex=cex)
+    points(group1[,X],group1[,Y],col=cols[1],pch=sym[1],cex=cex)
     points(group2[,X],group2[,Y],col=cols[2],pch=sym[2])
     abline(a1,b1,lty=2)
     abline(a2,b2)

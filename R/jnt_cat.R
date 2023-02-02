@@ -32,7 +32,7 @@
 #' jnt_cat()
 
 jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),sym=c(16,1),
-                    cex=1){
+                    cex=1,xlab=X, ylab=Y){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$g)))
   m1 <- c("Rows with missing data were removed from the analysis")
   if(na_sum>0){
@@ -168,8 +168,6 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
   if(plot.full==T){
     min.lim <- min(data[,X],xlower)
     max.lim <- max(data[,X],xupper)
-    xlab <- X
-    ylab <- Y
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,xlim=c(min.lim,max.lim),type="n")
     points(group1[,X],group1[,Y],col=cols[1],pch=sym[1])
     points(group2[,X],group2[,Y],col=cols[2],pch=sym[2])
@@ -179,8 +177,6 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }else{
-    xlab <- X
-    ylab <- Y
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,type="n")
     points(group1[,X],group1[,Y],col=cols[1],pch=sym[1],cex=cex)
     points(group2[,X],group2[,Y],col=cols[2],pch=sym[2],cex=cex)

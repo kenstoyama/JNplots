@@ -168,7 +168,9 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
   if(plot.full==T){
     min.lim <- min(data[,X],xlower)
     max.lim <- max(data[,X],xupper)
-    plot(data[,X],data[,Y],xlab=X,ylab=Y,xlim=c(min.lim,max.lim),type="n")
+    xlab <- X
+    ylab <- Y
+    plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,xlim=c(min.lim,max.lim),type="n")
     points(group1[,X],group1[,Y],col=cols[1],pch=sym[1])
     points(group2[,X],group2[,Y],col=cols[2],pch=sym[2])
     abline(a1,b1,lty=2)
@@ -177,7 +179,9 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }else{
-    plot(data[,X],data[,Y],xlab=X,ylab=Y,type="n")
+    xlab <- X
+    ylab <- Y
+    plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,type="n")
     points(group1[,X],group1[,Y],col=cols[1],pch=sym[1],cex=cex)
     points(group2[,X],group2[,Y],col=cols[2],pch=sym[2],cex=cex)
     abline(a1,b1,lty=2)

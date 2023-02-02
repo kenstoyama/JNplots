@@ -23,7 +23,7 @@
 #' @export
 #' jnt_cont()
 
-jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100){
+jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y){
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
   mod.out <- mod
   if(phylo==T){
@@ -53,7 +53,7 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100){
     warning(m)
   }
 
-  plot(data[,X],data[,Y],xlab=X,ylab=Y)
+  plot(data[,X],data[,Y],xlab=xlab,ylab=ylab)
 
   val <- min(min(data[,g],na.rm = T),min(x1,x2)) # minimum value to plot
   valmin <- min(data[,g],na.rm = T) # minumum value in data

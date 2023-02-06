@@ -62,8 +62,8 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
   valmax <- max(data[,g],na.rm = T) # maximum value in data
 
   # test if significant values are inside or outside x1 and x2
-  inside_color <- "grey"
-  outside_color <- "lightblue"
+  inside_color <- nonsig_color
+  outside_color <- sig_color
   test_x <- min(x1,x2)
   list_b <- c()
   inside_sig = T

@@ -23,7 +23,8 @@
 #' @export
 #' jnt_cont()
 
-jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y){
+jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="lightblue",
+                     nonsig_color="grey"){
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
   mod.out <- mod
   if(phylo==T){
@@ -78,8 +79,8 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y){
   }
 
   if (inside_sig==T){
-    inside_color <- "lightblue"
-    outside_color <- "grey"
+    inside_color <- sig_color
+    outside_color <- nonsig_color
   }
 
   nn <- (val_max-val)/res

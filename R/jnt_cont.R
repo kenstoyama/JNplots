@@ -23,8 +23,8 @@
 #' @export
 #' jnt_cont()
 
-jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="red",
-                     nonsig_color="grey"){
+jnt_cont2 <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="red",
+                      nonsig_color="grey",col.gradient=F,max_col_grad="red",min_col_grad="blue"){
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
   mod.out <- mod
   if(phylo==T){
@@ -57,13 +57,13 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
   plot(data[,X],data[,Y],xlab=xlab,ylab=ylab)
 
   val <- min(min(data[,g],na.rm = T),min(x1,x2)) # minimum value to plot
-  valmin <- min(data[,g],na.rm = T) # minumum value in data
+  valmin <- min(data[,g],na.rm = T) # minimum value in data
   val_max <- max(max(data[,g],na.rm = T),max(x1,x2)) # maximum value to plot
   valmax <- max(data[,g],na.rm = T) # maximum value in data
 
   # test if significant values are inside or outside x1 and x2
-  inside_color <- nonsig_color
-  outside_color <- sig_color
+  inside_color_initial <- nonsig_color
+  outside_color_initial <- sig_color
   test_x <- min(x1,x2)
   list_b <- c()
   inside_sig = T
@@ -79,25 +79,66 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
   }
 
   if (inside_sig==T){
-    inside_color <- sig_color
-    outside_color <- nonsig_color
+    inside_color_initial <- sig_color
+    outside_color_initial <- nonsig_color
+  }
+
+  if (inside_sig==T){ # how many regression lines will be plotted as significant? (need for color gradient)
+    gradient_sep <- res/length(list_b)
+  } else {
+    gradient_sep <- res/(res-length(list_b))
   }
 
   nn <- (val_max-val)/res
+  colfunc <- colorRampPalette(c(max_col_grad, min_col_grad))
+  col.gradient.list <- colfunc(res)
   aaa <- c()
   c <- 1
   while(val+nn<val_max){
-    #if(val+nn>x2 & val+nn<x1){ #try changing to min(...) and max(...)
-    if(val+nn>min(x1,x2) & val+nn<max(x1,x2)){
-      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(inside_color,0.5))
-      aaa[c] <- val
-      val <- val+nn
-      c <- c+1
-    } else {
-      abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(outside_color,0.5))
-      aaa[c] <- val
-      val <- val+nn
-      c <- c+1
+    if (col.gradient==T){
+      if(val+nn>min(x1,x2) & val+nn<max(x1,x2)){ # does it fall within the region*?
+        if(inside_color_initial == sig_color){ # is it a region* of significance?
+          inside_color <- col.gradient.list[c*gradient_sep] # if it is, use the col gradient
+        }else{ # if it is not, use the color for non significant regions
+          inside_color <- nonsig_color
+        }
+        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(inside_color,0.5))
+        aaa[c] <- val
+        val <- val+nn
+        c <- c+1
+      }else{
+        if(col.gradient==T & outside_color_initial == sig_color){ # is the outside region one of significance?
+          outside_color <- col.gradient.list[c*gradient_sep] # if it is, use the color gradient
+        }else{ # if it is not, use the color for non significant regions
+          outside_color <- nonsig_color
+        }
+        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(outside_color,0.5))
+        aaa[c] <- val
+        val <- val+nn
+        c <- c+1
+      }
+    }else{
+      if(val+nn>min(x1,x2) & val+nn<max(x1,x2)){ # does it fall within the region*?
+        if(inside_color_initial == sig_color){ # is it a region* of significance?
+          inside_color <- sig_color # if it is, use the specified sig color
+        }else{
+          inside_color <- nonsig_color
+        }
+        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(inside_color,0.5))
+        aaa[c] <- val
+        val <- val+nn
+        c <- c+1
+      }else{ # if it is outside the region*...
+        if(outside_color_initial == sig_color){ # is the outside region one of significance?
+          outside_color <- sig_color # if it is, use the specified sig color
+        }else{
+          outside_color <- nonsig_color
+        }
+        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(outside_color,0.5))
+        aaa[c] <- val
+        val <- val+nn
+        c <- c+1
+      }
     }
   }
   abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*min(data[,g],na.rm = T)),
@@ -108,7 +149,7 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
          col="black",lwd=1,lty=1)
   legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/5), bty='n', xpd=NA,
          c("max mod value in data", "min mod value in data", "region of significance", "region of non-significance"),
-         lty=c(1,2,1,1),lwd=c(1.5,1.5,1.5,1.5),cex=0.5,col=c("black","black","lightblue","grey"))
+         lty=c(1,2,1,1),lwd=c(1.5,1.5,1.5,1.5),cex=0.5,col=c("black","black",sig_color,nonsig_color))
   results <- list("coeff" = mod.out,"lower non-significance limit of moderator" = min(x1,x2),
                   "upper non-significance limit of moderator" = max(x1,x2),
                   "lower data limit" = valmin, "upper data limit" = valmax)

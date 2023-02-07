@@ -23,7 +23,7 @@
 #' @export
 #' jnt_cont()
 
-jnt_cont2 <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="red",
+jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="red",
                       nonsig_color="grey",col.gradient=F,max_col_grad="red",min_col_grad="blue"){
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
   mod.out <- mod

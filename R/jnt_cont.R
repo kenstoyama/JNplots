@@ -94,11 +94,13 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
   col.gradient.list <- colfunc(res)
   aaa <- c()
   c <- 1
+  c_col <- 1
   while(val+nn<val_max){
     if (col.gradient==T){
       if(val+nn>min(x1,x2) & val+nn<max(x1,x2)){ # does it fall within the region*?
         if(inside_color_initial == sig_color){ # is it a region* of significance?
-          inside_color <- col.gradient.list[c*gradient_sep] # if it is, use the col gradient
+          inside_color <- col.gradient.list[c_col*gradient_sep] # if it is, use the col gradient
+          c_col <- c_col+1
         }else{ # if it is not, use the color for non significant regions
           inside_color <- nonsig_color
         }
@@ -108,7 +110,8 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
         c <- c+1
       }else{
         if(col.gradient==T & outside_color_initial == sig_color){ # is the outside region one of significance?
-          outside_color <- col.gradient.list[c*gradient_sep] # if it is, use the color gradient
+          outside_color <- col.gradient.list[c_col*gradient_sep] # if it is, use the color gradient
+          c_col <- c_col+1
         }else{ # if it is not, use the color for non significant regions
           outside_color <- nonsig_color
         }

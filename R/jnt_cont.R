@@ -151,9 +151,12 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
   abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*max(data[,g],na.rm = T)),
          b=(mod.out$coefficients[2]+mod.out$coefficients[4]*max(data[,g],na.rm = T)),
          col="black",lwd=1,lty=1)
-  legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/5), bty='n', xpd=NA,
-         c("max mod value in data", "min mod value in data", "region of significance", "region of non-significance"),
-         lty=c(1,2,1,1),lwd=c(1.5,1.5,1.5,1.5),cex=0.5,col=c("black","black",sig_color,nonsig_color))
+  legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
+         c("max mod value in data", "min mod value in data", "non-sig relationships"),
+         lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.5,col=c("black","black",nonsig_color))
+  legend(par('usr')[2]/2,par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
+         c("higher mod values", "lower mod values"),
+         lty=c(1,1),lwd=c(1.5,1.5),cex=0.5,col=c(max_col_grad,min_col_grad))
   results <- list("coeff" = mod.out,"lower non-significance limit of moderator" = min(x1,x2),
                   "upper non-significance limit of moderator" = max(x1,x2),
                   "lower data limit" = valmin, "upper data limit" = valmax)

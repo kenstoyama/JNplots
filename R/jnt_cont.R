@@ -92,6 +92,7 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
   nn <- (val_max-val)/res
   colfunc <- colorRampPalette(c(max_col_grad, min_col_grad))
   col.gradient.list <- colfunc(res)
+  col.gradient.list <- rev(col.gradient.list) # reversing so colors align with direction of values
   aaa <- c()
   c <- 1
   c_col <- 1

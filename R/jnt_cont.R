@@ -154,7 +154,7 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
   legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
          c("max mod value in data", "min mod value in data", "non-sig relationships"),
          lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.5,col=c("black","black",nonsig_color))
-  legend(par('usr')[2]+((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
+  legend(par('usr')[2]-((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
          c("higher mod values", "lower mod values"),
          lty=c(1,1),lwd=c(1.5,1.5),cex=0.5,col=c(max_col_grad,min_col_grad))
   results <- list("coeff" = mod.out,"lower non-significance limit of moderator" = min(x1,x2),

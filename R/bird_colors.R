@@ -1,4 +1,4 @@
-#' Climatic drivers of coloration in Furnariidae species 
+#' Climatic drivers of coloration in Furnariidae species
 #'
 #' Data for redness and brightness of different plumage patches in Furnariidae species
 #' and associated climatic data
@@ -7,7 +7,7 @@
 #'
 #' @usage data(bird_colors)
 #'
-#' @format An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.
+#' @format An object of class data.frame
 #'
 #' @keywords datasets
 #'

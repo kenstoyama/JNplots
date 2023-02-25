@@ -1,4 +1,4 @@
-#' Determinants of home range size in sleepy lizards 
+#' Determinants of home range size in sleepy lizards
 #'
 #' Dataset includes data on the determinants of home range size in the lizard
 #' Tiliqua rugosa
@@ -7,7 +7,7 @@
 #'
 #' @usage data(lizard_home_range)
 #'
-#' @format An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.
+#' @format An object of class data.frame
 #'
 #' @keywords datasets
 #'

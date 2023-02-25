@@ -1,11 +1,10 @@
 #' Diet and morphology data for Microlophus thoracicus (Squamata: Tropiduridae)
 #'
-#' Data for head morphology and proportion of plant material in the diet
-#' of the lizard Microlophus thoracicus.
+#' Data for body size and head morphology of Microlophus lizards
 #'
 #' @docType data
 #'
-#' @usage data(data_thoracicus)
+#' @usage data(microlophus)
 #'
 #' @format An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.
 #'

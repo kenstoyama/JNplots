@@ -39,7 +39,7 @@ The variable must be continuous.}
 \item{phylo}{A logical. It indicates whether a phylogenetically-informed
 analysis will be performed (i.e., PGLS). “F” by default.}
 
-\item{correlation}{an optional link{corStruct} object describing the within-group
+\item{correlation}{an optional \link{corStruct} object describing the within-group
 correlation structure. See the documentation of corClasses for a description of
 the available corStruct classes. If a grouping variable is to be used, it must be
 specified in the form argument to the corStruct constructor. Defaults to NULL,

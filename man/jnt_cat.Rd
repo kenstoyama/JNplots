@@ -14,7 +14,10 @@ jnt_cat(
   phylo = F,
   tree,
   cols = c("black", "black"),
-  sym = c(16, 1)
+  sym = c(16, 1),
+  cex = 1,
+  xlab = X,
+  ylab = Y
 )
 }
 \arguments{

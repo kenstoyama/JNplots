@@ -21,7 +21,7 @@
 #'  the available corStruct classes. If a grouping variable is to be used, it must be
 #'  specified in the form argument to the corStruct constructor. Defaults to NULL,
 #'  corresponding to uncorrelated errors.
-#' @param plot.lim A logical. It indicates whether the plot should show the
+#' @param plot.full A logical. It indicates whether the plot should show the
 #'  JN non-significance regions even if they don’t or just slightly overlap the data.
 #'  The default option is “F”, meaning that the plot limits will depend only on the data.
 #' @param cols A vector of strings defining the symbol colors to be used in the

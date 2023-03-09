@@ -35,6 +35,10 @@ variable must have two levels.}
 
 \item{data}{The dataset.}
 
+\item{plot.full}{A logical. It indicates whether the plot should show the
+JN non-significance regions even if they don’t or just slightly overlap the data.
+The default option is “F”, meaning that the plot limits will depend only on the data.}
+
 \item{phylo}{A logical. It indicates whether a phylogenetically-informed analysis
 will be performed (i.e., PGLS). “F” by default.}
 
@@ -53,10 +57,6 @@ distinct groups in the plot. Use same symbol codes as in the argument “pch”
 in the R base function “plot”. By default, “c(16, 1)” is used, which combines
 with the default in the argument “cols” to present two groups of datapoints
 as open and close.}
-
-\item{plot.lim}{A logical. It indicates whether the plot should show the
-JN non-significance regions even if they don’t or just slightly overlap the data.
-The default option is “F”, meaning that the plot limits will depend only on the data.}
 }
 \description{
 Produces a plot showing which values of a categorical moderator have a

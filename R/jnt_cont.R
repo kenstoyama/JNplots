@@ -15,7 +15,7 @@
 #' @param data The dataset.
 #' @param phylo A logical. It indicates whether a phylogenetically-informed
 #'  analysis will be performed (i.e., PGLS). “F” by default.
-#' @param correlation an optional corStruct object describing the within-group
+#' @param correlation an optional link{corStruct} object describing the within-group
 #'  correlation structure. See the documentation of corClasses for a description of
 #'  the available corStruct classes. If a grouping variable is to be used, it must be
 #'  specified in the form argument to the corStruct constructor. Defaults to NULL,

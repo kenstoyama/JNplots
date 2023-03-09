@@ -15,15 +15,18 @@
 #' @param data The dataset.
 #' @param phylo A logical. It indicates whether a phylogenetically-informed
 #'  analysis will be performed (i.e., PGLS). “F” by default.
-#' @param tree A “phylo” class object. A phylogeny that must match the species
-#'  in the data.
+#' @param correlation an optional corStruct object describing the within-group
+#'  correlation structure. See the documentation of corClasses for a description of
+#'  the available corStruct classes. If a grouping variable is to be used, it must be
+#'  specified in the form argument to the corStruct constructor. Defaults to NULL,
+#'  corresponding to uncorrelated errors.
 #' @param res A numerical value that aids in the plotting of regions of (non)significance.
 #'  Default=100, higher numbers increase the intensity of colors
 #' @import scale
 #' @export
 #' jnt_cont()
 
-jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="red",
+jnt_cont <- function(X,Y,g,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_color="red",
                       nonsig_color="grey",col.gradient=F,max_col_grad="red",min_col_grad="blue"){
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
   mod.out <- mod
@@ -31,7 +34,7 @@ jnt_cont <- function(X,Y,g,data,phylo=F,tree,res=100,xlab=X,ylab=Y,sig_color="re
     Xi <- data[,X]
     Yi <- data[,Y]
     gi <- data[,g]
-    mod <- gls(Yi~Xi*gi, correlation=corPagel(1,tree),
+    mod <- gls(Yi~Xi*gi, correlation=correlation,
                na.action = na.omit)
     mod.out <- summary(mod)
   }

@@ -12,7 +12,7 @@ jnt_cat(
   data,
   plot.full = F,
   phylo = F,
-  tree,
+  correlation,
   cols = c("black", "black"),
   sym = c(16, 1),
   cex = 1,
@@ -38,7 +38,11 @@ variable must have two levels.}
 \item{phylo}{A logical. It indicates whether a phylogenetically-informed analysis
 will be performed (i.e., PGLS). “F” by default.}
 
-\item{tree}{A “phylo” class object. A phylogeny that must match the species in the data.}
+\item{correlation}{an optional \link{corStruct} object describing the within-group
+correlation structure. See the documentation of \link{corClasses} for a description of
+the available corStruct classes. If a grouping variable is to be used, it must be
+specified in the form argument to the corStruct constructor. Defaults to NULL,
+corresponding to uncorrelated errors.}
 
 \item{cols}{A vector of strings defining the symbol colors to be used in the
 plot. By default, c(“black”, “black”) is used, which combines with the default

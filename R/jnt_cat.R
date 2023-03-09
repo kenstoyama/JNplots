@@ -16,7 +16,11 @@
 #' @param data The dataset.
 #' @param phylo A logical. It indicates whether a phylogenetically-informed analysis
 #'  will be performed (i.e., PGLS). “F” by default.
-#' @param tree A “phylo” class object. A phylogeny that must match the species in the data.
+#' @param correlation an optional \link{corStruct} object describing the within-group
+#'  correlation structure. See the documentation of \link{corClasses} for a description of
+#'  the available corStruct classes. If a grouping variable is to be used, it must be
+#'  specified in the form argument to the corStruct constructor. Defaults to NULL,
+#'  corresponding to uncorrelated errors.
 #' @param plot.lim A logical. It indicates whether the plot should show the
 #'  JN non-significance regions even if they don’t or just slightly overlap the data.
 #'  The default option is “F”, meaning that the plot limits will depend only on the data.
@@ -31,7 +35,7 @@
 #' @export
 #' jnt_cat()
 
-jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),sym=c(16,1),
+jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","black"),sym=c(16,1),
                     cex=1,xlab=X, ylab=Y){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$g)))
   m1 <- c("Rows with missing data were removed from the analysis")
@@ -47,7 +51,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,tree,cols=c("black","black"),
     Xi <- data[,X]
     Yi <- data[,Y]
     gi <- data[,g]
-    mod <- gls(Yi~Xi*gi, correlation=corPagel(1,tree),
+    mod <- gls(Yi~Xi*gi, correlation=correlation,
                na.action = na.omit)
     mod.out <- summary(mod)
   }

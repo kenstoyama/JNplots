@@ -22,6 +22,16 @@
 #'  corresponding to uncorrelated errors.
 #' @param res A numerical value that aids in the plotting of regions of (non)significance.
 #'  Default=100, higher numbers increase the intensity of colors
+#' @param col.gradient A logical indicating whether the significant regression lines
+#'  should be plotted with a gradient of colors corresponding to the moderator value used.
+#' @param sig_color If col.gradient = F, a character string indicating the color of the significant
+#'  regression lines. Defaults to 'red'.
+#' @param nonsig_color If col.gradient = F, a character string indicating the color of the non-significant
+#'  regression lines. Defaults to 'grey'.
+#' @param max_col_grad If col.gradient = T, a character string indicating the maximum color of
+#'  the gradient.
+#' @param min_col_grad If col.gradient = T, a character string indicating the minimum color of
+#'  the gradient.
 #' @import scale
 #' @export
 #' jnt_cont()

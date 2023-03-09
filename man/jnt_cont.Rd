@@ -47,6 +47,21 @@ corresponding to uncorrelated errors.}
 
 \item{res}{A numerical value that aids in the plotting of regions of (non)significance.
 Default=100, higher numbers increase the intensity of colors}
+
+\item{sig_color}{If col.gradient = F, a character string indicating the color of the significant
+regression lines. Defaults to 'red'.}
+
+\item{nonsig_color}{If col.gradient = F, a character string indicating the color of the non-significant
+regression lines. Defaults to 'grey'.}
+
+\item{col.gradient}{A logical indicating whether the significant regression lines
+should be plotted with a gradient of colors corresponding to the moderator value used.}
+
+\item{max_col_grad}{If col.gradient = T, a character string indicating the maximum color of
+the gradient.}
+
+\item{min_col_grad}{If col.gradient = T, a character string indicating the minimum color of
+the gradient.}
 }
 \description{
 Produces a plot showing which values of a continuous moderator have a

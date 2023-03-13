@@ -36,7 +36,7 @@
 #' jnt_cat()
 
 jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","black"),sym=c(16,1),
-                    cex=1,xlab=X, ylab=Y){
+                    cex=1,xlab=X, ylab=Y, legend=F){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$g)))
   m1 <- c("Rows with missing data were removed from the analysis")
   if(na_sum>0){
@@ -190,9 +190,11 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","b
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }
-  legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/10), bty='n', xpd=NA,
-         c(levs[1], levs[2]),
-         pch=c(sym[1],sym[2]),cex=0.5,col=c(cols[1],cols[2]))
+  if(legend==T){
+    legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/10), bty='n', xpd=NA,
+           c(levs[1], levs[2]),
+           pch=c(sym[1],sym[2]),cex=0.5,col=c(cols[1],cols[2]))
+  }
   if(((B^2)-A*C)<0){
     results <- list("coeff" = mod.out)
     return(results)

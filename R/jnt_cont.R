@@ -166,12 +166,22 @@ jnt_cont <- function(X,Y,g,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_co
          b=(mod.out$coefficients[2]+mod.out$coefficients[4]*max(data[,g],na.rm = T)),
          col="black",lwd=1,lty=1)
   if(legend==T){
-    legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
-           c("max mod value in data", "min mod value in data", "non-sig relationships"),
-           lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.5,col=c("black","black",nonsig_color))
-    legend(par('usr')[2]-((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
-           c("higher mod values", "lower mod values"),
-           lty=c(1,1),lwd=c(1.5,1.5),cex=0.5,col=c(max_col_grad,min_col_grad))
+    if(col.gradient=T){
+      legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
+             c("max mod value in data", "min mod value in data", "non-sig relationships"),
+             lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.5,col=c("black","black",nonsig_color))
+      legend(par('usr')[2]-((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
+             c("higher mod values", "lower mod values"),
+             lty=c(1,1),lwd=c(1.5,1.5),cex=0.5,col=c(max_col_grad,min_col_grad))
+    }else{
+      legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
+             c("max mod value in data", "min mod value in data", "non-sig relationships"),
+             lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.5,col=c("black","black",nonsig_color))
+      legend(par('usr')[2]-((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
+             c("significant relationships"),
+             lty=c(1,1),lwd=c(1.5,1.5),cex=0.5,col=sig_color)
+    }
+
   }
   results <- list("coeff" = mod.out,"lower non-significance limit of moderator" = min(x1,x2),
                   "upper non-significance limit of moderator" = max(x1,x2),

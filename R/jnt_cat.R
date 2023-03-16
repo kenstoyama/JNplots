@@ -175,8 +175,8 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","b
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,xlim=c(min.lim,max.lim),type="n")
     points(group1[,X],group1[,Y],col=cols[1],pch=sym[1])
     points(group2[,X],group2[,Y],col=cols[2],pch=sym[2])
-    abline(a1,b1,lty=lty[2],col=line.col[2])
-    abline(a2,b2,lty=lty[1],col=line.col[1])
+    abline(a1,b1,lty=lty[1],col=line.col[1])
+    abline(a2,b2,lty=lty[2],col=line.col[2])
     polygon(c(xlower,xlower,xupper,xupper),c(-2*(abs(min(data[,Y]))),max(data[,Y])*2,
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)
@@ -184,8 +184,8 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","b
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,type="n")
     points(group1[,X],group1[,Y],col=cols[1],pch=sym[1],cex=cex)
     points(group2[,X],group2[,Y],col=cols[2],pch=sym[2],cex=cex)
-    abline(a1,b1,lty=lty[2],col=line.col[2])
-    abline(a2,b2,lty=lty[1],col=line.col[1])
+    abline(a1,b1,lty=lty[1],col=line.col[1])
+    abline(a2,b2,lty=lty[2],col=line.col[2])
     polygon(c(xlower,xlower,xupper,xupper),c(-2*(abs(min(data[,Y]))),max(data[,Y])*2,
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)

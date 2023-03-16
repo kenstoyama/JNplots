@@ -36,7 +36,7 @@
 #' jnt_cat()
 
 jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","black"),sym=c(16,1),
-                    cex=1,xlab=X, ylab=Y, legend=F){
+                    cex=1,xlab=X, ylab=Y, legend=F, lty=c(1,2)){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$g)))
   m1 <- c("Rows with missing data were removed from the analysis")
   if(na_sum>0){
@@ -175,8 +175,8 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","b
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,xlim=c(min.lim,max.lim),type="n")
     points(group1[,X],group1[,Y],col=cols[1],pch=sym[1])
     points(group2[,X],group2[,Y],col=cols[2],pch=sym[2])
-    abline(a1,b1,lty=2)
-    abline(a2,b2)
+    abline(a1,b1,lty=lty[2])
+    abline(a2,b2,lty=[1])
     polygon(c(xlower,xlower,xupper,xupper),c(-2*(abs(min(data[,Y]))),max(data[,Y])*2,
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)

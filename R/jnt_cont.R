@@ -37,7 +37,7 @@
 #' jnt_cont()
 
 jnt_cont <- function(X,Y,g,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_color="red",
-                      nonsig_color="grey",col.gradient=F,max_col_grad="red",min_col_grad="blue",
+                      nonsig_color="grey",col.gradient=T,max_col_grad="red",min_col_grad="blue",
                      legend=F){
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
   mod.out <- mod

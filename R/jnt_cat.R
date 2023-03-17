@@ -192,9 +192,9 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","b
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }
   if(legend==T){
-    legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/10), bty='n', xpd=NA,
+    legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
            c(levs[1], levs[2]),
-           pch=c(sym[1],sym[2]),cex=0.5,col=c(cols[1],cols[2]))
+           pch=c(sym[1],sym[2]),cex=0.8,col=c(cols[1],cols[2]))
   }
   if(((B^2)-A*C)<0){
     results <- list("coeff" = mod.out)

@@ -38,7 +38,7 @@
 
 jnt_cont <- function(X,Y,g,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_color="red",
                       nonsig_color="grey",col.gradient=T,max_col_grad="red",min_col_grad="blue",
-                     legend=F){
+                      legend=F){
   mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
   mod.out <- mod
   if(phylo==T){
@@ -167,19 +167,19 @@ jnt_cont <- function(X,Y,g,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_co
          col="black",lwd=1,lty=1)
   if(legend==T){
     if(col.gradient==T){
-      legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
-             c("max mod value in data", "min mod value in data", "non-sig relationships"),
-             lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.5,col=c("black","black",nonsig_color))
-      legend(par('usr')[2]-((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
+      legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/5), bty='n', xpd=NA,
+             c("max mod value", "min mod value", "non-sig relationships"),
+             lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.7,col=c("black","black",nonsig_color))
+      legend(par('usr')[2]-((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/5), bty='n', xpd=NA,
              c("higher mod values", "lower mod values"),
-             lty=c(1,1),lwd=c(1.5,1.5),cex=0.5,col=c(max_col_grad,min_col_grad))
+             lty=c(1,1),lwd=c(1.5,1.5),cex=0.7,col=c(max_col_grad,min_col_grad))
     }else{
-      legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
-             c("max mod value in data", "min mod value in data", "non-sig relationships"),
-             lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.5,col=c("black","black",nonsig_color))
-      legend(par('usr')[2]-((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
-             c("significant relationships"),
-             lty=c(1,1),lwd=c(1.5,1.5),cex=0.5,col=sig_color)
+      legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/5), bty='n', xpd=NA,
+             c("max mod value", "min mod value", "non-sig relationships"),
+             lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.7,col=c("black","black",nonsig_color))
+      legend(par('usr')[2]-((par('usr')[2]-par('usr')[1])/2),par('usr')[4]+((par('usr')[4]-par('usr')[3])/5), bty='n', xpd=NA,
+             c("sig relationships"),
+             lty=c(1,1),lwd=c(1.5,1.5),cex=0.7,col=sig_color)
     }
 
   }
@@ -188,3 +188,4 @@ jnt_cont <- function(X,Y,g,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_co
                   "lower data limit" = valmin, "upper data limit" = valmax)
   return(results)
 }
+

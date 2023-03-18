@@ -26,8 +26,8 @@
 #'  The default option is “F”, meaning that the plot limits will depend only on the data.
 #' @param cols A vector of strings defining the symbol colors to be used in the
 #'  plot. By default, c(“black”, “black”) is used, which combines with the default
-#'  in the argument “sym” to present two groups of datapoints as open and close.
-#' @param sym A vector of strings defining the symbols to be used to represent
+#'  in the argument “pch” to present two groups of datapoints as open and close.
+#' @param pch A vector of strings defining the symbols to be used to represent
 #'  distinct groups in the plot. Use same symbol codes as in the argument “pch”
 #'  in the R base function “plot”. By default, “c(16, 1)” is used, which combines
 #'  with the default in the argument “cols” to present two groups of datapoints
@@ -35,7 +35,7 @@
 #' @export
 #' jnt_cat()
 
-jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","black"),sym=c(16,1),
+jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","black"),pch=c(16,1),
                     cex=1,xlab=X, ylab=Y, legend=F, lty=c(1,2), line.col=c("black","black"),
                     lwd=c(1,1)){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$g)))
@@ -174,8 +174,8 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","b
     min.lim <- min(data[,X],xlower)
     max.lim <- max(data[,X],xupper)
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,xlim=c(min.lim,max.lim),type="n")
-    points(group1[,X],group1[,Y],col=cols[1],pch=sym[1])
-    points(group2[,X],group2[,Y],col=cols[2],pch=sym[2])
+    points(group1[,X],group1[,Y],col=cols[1],pch=pch[1])
+    points(group2[,X],group2[,Y],col=cols[2],pch=pch[2])
     abline(a1,b1,lty=lty[1],col=line.col[1],lwd=lwd[1])
     abline(a2,b2,lty=lty[2],col=line.col[2],lwd=lwd[2])
     polygon(c(xlower,xlower,xupper,xupper),c(-2*(abs(min(data[,Y]))),max(data[,Y])*2,
@@ -183,8 +183,8 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","b
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }else{
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,type="n")
-    points(group1[,X],group1[,Y],col=cols[1],pch=sym[1],cex=cex)
-    points(group2[,X],group2[,Y],col=cols[2],pch=sym[2],cex=cex)
+    points(group1[,X],group1[,Y],col=cols[1],pch=pch[1],cex=cex)
+    points(group2[,X],group2[,Y],col=cols[2],pch=pch[2],cex=cex)
     abline(a1,b1,lty=lty[1],col=line.col[1],lwd=lwd[1])
     abline(a2,b2,lty=lty[2],col=line.col[2],lwd=lwd[2])
     polygon(c(xlower,xlower,xupper,xupper),c(-2*(abs(min(data[,Y]))),max(data[,Y])*2,
@@ -194,7 +194,7 @@ jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","b
   if(legend==T){
     legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
            c(levs[1], levs[2]),
-           pch=c(sym[1],sym[2]),cex=0.8,col=c(cols[1],cols[2]))
+           pch=c(pch[1],pch[2]),cex=0.8,col=c(cols[1],cols[2]))
   }
   if(((B^2)-A*C)<0){
     results <- list("coeff" = mod.out)

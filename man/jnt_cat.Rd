@@ -14,10 +14,14 @@ jnt_cat(
   phylo = F,
   correlation,
   cols = c("black", "black"),
-  sym = c(16, 1),
+  pch = c(16, 1),
   cex = 1,
   xlab = X,
-  ylab = Y
+  ylab = Y,
+  legend = F,
+  lty = c(1, 2),
+  line.col = c("black", "black"),
+  lwd = c(1, 1)
 )
 }
 \arguments{
@@ -50,9 +54,9 @@ corresponding to uncorrelated errors.}
 
 \item{cols}{A vector of strings defining the symbol colors to be used in the
 plot. By default, c(“black”, “black”) is used, which combines with the default
-in the argument “sym” to present two groups of datapoints as open and close.}
+in the argument “pch” to present two groups of datapoints as open and close.}
 
-\item{sym}{A vector of strings defining the symbols to be used to represent
+\item{pch}{A vector of strings defining the symbols to be used to represent
 distinct groups in the plot. Use same symbol codes as in the argument “pch”
 in the R base function “plot”. By default, “c(16, 1)” is used, which combines
 with the default in the argument “cols” to present two groups of datapoints

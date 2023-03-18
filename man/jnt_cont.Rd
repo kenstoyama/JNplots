@@ -17,9 +17,10 @@ jnt_cont(
   ylab = Y,
   sig_color = "red",
   nonsig_color = "grey",
-  col.gradient = F,
+  col.gradient = T,
   max_col_grad = "red",
-  min_col_grad = "blue"
+  min_col_grad = "blue",
+  legend = F
 )
 }
 \arguments{

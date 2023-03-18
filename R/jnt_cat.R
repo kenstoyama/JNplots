@@ -9,7 +9,7 @@
 #'  dataset (see argument “data”).
 #' @param Y A character string defining the name of the dependent variable. Must
 #'  be the same as the name of the variable in the dataset (see argument “data”).
-#' @param g A character string defining the name of a categorical moderator
+#' @param m A character string defining the name of a categorical moderator
 #'  (e.g., males and females, herbivorous and carnivorous, etc). Must be the same
 #'  as the name of the variable in the dataset (see argument “data”). The
 #'  variable must have two levels.
@@ -35,30 +35,30 @@
 #' @export
 #' jnt_cat()
 
-jnt_cat <- function(X,Y,g,data,plot.full=F,phylo=F,correlation,cols=c("black","black"),pch=c(16,1),
+jnt_cat <- function(X,Y,m,data,plot.full=F,phylo=F,correlation,cols=c("black","black"),pch=c(16,1),
                     cex=1,xlab=X, ylab=Y, legend=F, lty=c(1,2), line.col=c("black","black"),
                     lwd=c(1,1)){
-  na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$g)))
+  na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$m)))
   m1 <- c("Rows with missing data were removed from the analysis")
   if(na_sum>0){
     warning(m1)
   }
-  data <- data[complete.cases(data[ , c(X,Y,g)]), ]
-  data[,g] <- as.factor(data[,g])
-  levs <- levels(as.factor(droplevels(data[,g])))
-  mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
+  data <- data[complete.cases(data[ , c(X,Y,m)]), ]
+  data[,m] <- as.factor(data[,m])
+  levs <- levels(as.factor(droplevels(data[,m])))
+  mod <- summary(lm(data[,Y]~data[,X]*data[,m]))
   mod.out <- mod
   if(phylo==T){
     Xi <- data[,X]
     Yi <- data[,Y]
-    gi <- data[,g]
+    gi <- data[,m]
     mod <- gls(Yi~Xi*gi, correlation=correlation,
                na.action = na.omit)
     mod.out <- summary(mod)
   }
 
-  group1 <- data[ which(data[,g]==levs[1]), ]
-  group2 <- data[ which(data[,g]==levs[2]), ]
+  group1 <- data[ which(data[,m]==levs[1]), ]
+  group2 <- data[ which(data[,m]==levs[2]), ]
 
   n1 <- length(group1[,1])
   n2 <- length(group2[,1])

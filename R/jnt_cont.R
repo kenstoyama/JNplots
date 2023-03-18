@@ -9,7 +9,7 @@
 #'  dataset (see argument “data”).
 #' @param Y A character string defining the name of the dependent variable. Must
 #'  be the same as the name of the variable in the dataset (see argument “data”).
-#' @param g A character string defining the name of a continuous moderator (e.g., …, etc).
+#' @param m A character string defining the name of a continuous moderator (e.g., …, etc).
 #'  Must be the same as the name of the variable in the dataset (see argument “data”).
 #'  The variable must be continuous.
 #' @param data The dataset.
@@ -36,15 +36,15 @@
 #' @export
 #' jnt_cont()
 
-jnt_cont <- function(X,Y,g,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_color="red",
+jnt_cont <- function(X,Y,m,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_color="lightblue",
                       nonsig_color="grey",col.gradient=T,max_col_grad="red",min_col_grad="blue",
                       legend=F){
-  mod <- summary(lm(data[,Y]~data[,X]*data[,g]))
+  mod <- summary(lm(data[,Y]~data[,X]*data[,m]))
   mod.out <- mod
   if(phylo==T){
     Xi <- data[,X]
     Yi <- data[,Y]
-    gi <- data[,g]
+    gi <- data[,m]
     mod <- gls(Yi~Xi*gi, correlation=correlation,
                na.action = na.omit)
     mod.out <- summary(mod)
@@ -63,9 +63,9 @@ jnt_cont <- function(X,Y,g,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_co
   x1 <- (-b-sqrt((b^2)-(4*a*c)))/(2*a)
   x2 <- (-b+sqrt((b^2)-(4*a*c)))/(2*a)
 
-  m <- c("It was not possible to calculate regions of non-significance. The difference between slopes might not be statistically significant")
+  mm <- c("It was not possible to calculate regions of non-significance. The difference between slopes might not be statistically significant")
   if(((b^2)-4*a*c)<0){
-    warning(m)
+    warning(mm)
   }
 
   plot(data[,X],data[,Y],xlab=xlab,ylab=ylab)

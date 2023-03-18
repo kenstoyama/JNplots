@@ -8,14 +8,14 @@ influence of continuous moderators}
 jnt_cont(
   X,
   Y,
-  g,
+  m,
   data,
   phylo = F,
   correlation,
   res = 100,
   xlab = X,
   ylab = Y,
-  sig_color = "red",
+  sig_color = "lightblue",
   nonsig_color = "grey",
   col.gradient = T,
   max_col_grad = "red",
@@ -31,7 +31,7 @@ dataset (see argument “data”).}
 \item{Y}{A character string defining the name of the dependent variable. Must
 be the same as the name of the variable in the dataset (see argument “data”).}
 
-\item{g}{A character string defining the name of a continuous moderator (e.g., …, etc).
+\item{m}{A character string defining the name of a continuous moderator (e.g., …, etc).
 Must be the same as the name of the variable in the dataset (see argument “data”).
 The variable must be continuous.}
 

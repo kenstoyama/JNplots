@@ -8,7 +8,7 @@ influence of categorical moderators}
 jnt_cat(
   X,
   Y,
-  g,
+  m,
   data,
   plot.full = F,
   phylo = F,
@@ -32,7 +32,7 @@ dataset (see argument “data”).}
 \item{Y}{A character string defining the name of the dependent variable. Must
 be the same as the name of the variable in the dataset (see argument “data”).}
 
-\item{g}{A character string defining the name of a categorical moderator
+\item{m}{A character string defining the name of a categorical moderator
 (e.g., males and females, herbivorous and carnivorous, etc). Must be the same
 as the name of the variable in the dataset (see argument “data”). The
 variable must have two levels.}

@@ -36,19 +36,15 @@
 #' @export
 #' jnt_cont()
 
-jnt_cont <- function(X,Y,m,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_color="lightblue",
+jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,sig_color="lightblue",
                       nonsig_color="grey",col.gradient=T,max_col_grad="red",min_col_grad="blue",
                       legend=T){
-  mod <- summary(lm(data[,Y]~data[,X]*data[,m]))
-  mod.out <- mod
-  if(phylo==T){
-    Xi <- data[,X]
-    Yi <- data[,Y]
-    gi <- data[,m]
-    mod <- gls(Yi~Xi*gi, correlation=correlation,
-               na.action = na.omit)
-    mod.out <- summary(mod)
-  }
+  Xi <- data[,X]
+  Yi <- data[,Y]
+  gi <- data[,m]
+  mod <- gls(Yi~Xi*gi, correlation=correlation,
+             na.action = na.omit)
+  mod.out <- summary(mod)
   varcov <- vcov(mod.out)
   coef1 <- mod.out$coefficients[2]
   coef3 <- mod.out$coefficients[4]
@@ -159,11 +155,11 @@ jnt_cont <- function(X,Y,m,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_co
       }
     }
   }
-  abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*min(data[,g],na.rm = T)),
-         b=(mod.out$coefficients[2]+mod.out$coefficients[4]*min(data[,g],na.rm = T)),
+  abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*min(data[,m],na.rm = T)),
+         b=(mod.out$coefficients[2]+mod.out$coefficients[4]*min(data[,m],na.rm = T)),
          col="black",lwd=1,lty=2)
-  abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*max(data[,g],na.rm = T)),
-         b=(mod.out$coefficients[2]+mod.out$coefficients[4]*max(data[,g],na.rm = T)),
+  abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*max(data[,m],na.rm = T)),
+         b=(mod.out$coefficients[2]+mod.out$coefficients[4]*max(data[,m],na.rm = T)),
          col="black",lwd=1,lty=1)
   if(legend==T){
     if(col.gradient==T){
@@ -188,4 +184,3 @@ jnt_cont <- function(X,Y,m,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_co
                   "lower data limit" = valmin, "upper data limit" = valmax)
   return(results)
 }
-

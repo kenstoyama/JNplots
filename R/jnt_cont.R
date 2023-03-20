@@ -70,10 +70,10 @@ jnt_cont <- function(X,Y,m,data,phylo=F,correlation,res=100,xlab=X,ylab=Y,sig_co
 
   plot(data[,X],data[,Y],xlab=xlab,ylab=ylab)
 
-  val <- min(min(data[,g],na.rm = T),min(x1,x2)) # minimum value to plot
-  valmin <- min(data[,g],na.rm = T) # minimum value in data
-  val_max <- max(max(data[,g],na.rm = T),max(x1,x2)) # maximum value to plot
-  valmax <- max(data[,g],na.rm = T) # maximum value in data
+  val <- min(min(data[,m],na.rm = T),min(x1,x2)) # minimum value to plot
+  valmin <- min(data[,m],na.rm = T) # minimum value in data
+  val_max <- max(max(data[,m],na.rm = T),max(x1,x2)) # maximum value to plot
+  valmax <- max(data[,m],na.rm = T) # maximum value in data
 
   # test if significant values are inside or outside x1 and x2
   inside_color_initial <- nonsig_color

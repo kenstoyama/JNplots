@@ -10,17 +10,16 @@ jnt_cont(
   Y,
   m,
   data,
-  phylo = F,
-  correlation,
+  correlation = NULL,
   res = 100,
   xlab = X,
   ylab = Y,
+  col.gradient = T,
   sig_color = "lightblue",
   nonsig_color = "grey",
-  col.gradient = T,
   max_col_grad = "red",
   min_col_grad = "blue",
-  legend = F
+  legend = T
 )
 }
 \arguments{
@@ -31,14 +30,11 @@ dataset (see argument “data”).}
 \item{Y}{A character string defining the name of the dependent variable. Must
 be the same as the name of the variable in the dataset (see argument “data”).}
 
-\item{m}{A character string defining the name of a continuous moderator (e.g., …, etc).
+\item{m}{A character string defining the name of a continuous moderator.
 Must be the same as the name of the variable in the dataset (see argument “data”).
 The variable must be continuous.}
 
-\item{data}{The dataset.}
-
-\item{phylo}{A logical. It indicates whether a phylogenetically-informed
-analysis will be performed (i.e., PGLS). “F” by default.}
+\item{data}{A dataframe containing the variables in the model.}
 
 \item{correlation}{an optional \link{corStruct} object describing the within-group
 correlation structure. See the documentation of \link{corClasses} for a description of
@@ -47,22 +43,30 @@ specified in the form argument to the corStruct constructor. Defaults to NULL,
 corresponding to uncorrelated errors.}
 
 \item{res}{A numerical value that aids in the plotting of regions of (non)significance.
-Default=100, higher numbers increase the intensity of colors}
+Default=100, higher numbers increase the number of fitted regression lines plotted (N=res-1).}
+
+\item{xlab}{A title for the X axis. Defaults to the name of the predictor variable
+in the data.}
+
+\item{ylab}{A title for the Y axis. Defaults to the name of the dependent variable
+in the data.}
+
+\item{col.gradient}{A logical indicating whether the significant regression lines
+should be plotted with a gradient of colors representing moderator values. Defaults to 'T'.}
 
 \item{sig_color}{If col.gradient = F, a character string indicating the color of the significant
-regression lines. Defaults to 'red'.}
+regression lines. Defaults to 'lightblue'.}
 
 \item{nonsig_color}{If col.gradient = F, a character string indicating the color of the non-significant
 regression lines. Defaults to 'grey'.}
-
-\item{col.gradient}{A logical indicating whether the significant regression lines
-should be plotted with a gradient of colors corresponding to the moderator value used.}
 
 \item{max_col_grad}{If col.gradient = T, a character string indicating the maximum color of
 the gradient.}
 
 \item{min_col_grad}{If col.gradient = T, a character string indicating the minimum color of
 the gradient.}
+
+\item{legend}{A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.}
 }
 \description{
 Produces a plot showing which values of a continuous moderator have a

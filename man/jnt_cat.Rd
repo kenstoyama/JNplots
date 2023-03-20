@@ -11,17 +11,16 @@ jnt_cat(
   m,
   data,
   plot.full = F,
-  phylo = F,
-  correlation,
+  correlation = NULL,
   cols = c("black", "black"),
   pch = c(16, 1),
   cex = 1,
   xlab = X,
   ylab = Y,
-  legend = F,
   lty = c(1, 2),
   line.col = c("black", "black"),
-  lwd = c(1, 1)
+  lwd = c(1, 1),
+  legend = T
 )
 }
 \arguments{
@@ -37,14 +36,11 @@ be the same as the name of the variable in the dataset (see argument “data”)
 as the name of the variable in the dataset (see argument “data”). The
 variable must have two levels.}
 
-\item{data}{The dataset.}
+\item{data}{A dataframe containing the variables in the model.}
 
 \item{plot.full}{A logical. It indicates whether the plot should show the
-JN non-significance regions even if they don’t or just slightly overlap the data.
-The default option is “F”, meaning that the plot limits will depend only on the data.}
-
-\item{phylo}{A logical. It indicates whether a phylogenetically-informed analysis
-will be performed (i.e., PGLS). “F” by default.}
+JN non-significance regions even if they don’t or just partially overlap the data.
+The default option is 'F', meaning that the plot limits will depend only on the range of predictor values}
 
 \item{correlation}{an optional \link{corStruct} object describing the within-group
 correlation structure. See the documentation of \link{corClasses} for a description of
@@ -52,15 +48,35 @@ the available corStruct classes. If a grouping variable is to be used, it must b
 specified in the form argument to the corStruct constructor. Defaults to NULL,
 corresponding to uncorrelated errors.}
 
-\item{cols}{A vector of strings defining the symbol colors to be used in the
-plot. By default, c(“black”, “black”) is used, which combines with the default
-in the argument “pch” to present two groups of datapoints as open and close.}
+\item{cols}{A vector of strings defining the colors of the symbols to be used in the
+plot. By default, c('black', 'black') is used, which combines with the default
+in the argument 'pch' to present two groups of datapoints as open and close.}
 
 \item{pch}{A vector of strings defining the symbols to be used to represent
-distinct groups in the plot. Use same symbol codes as in the argument “pch”
-in the R base function “plot”. By default, “c(16, 1)” is used, which combines
-with the default in the argument “cols” to present two groups of datapoints
+distinct groups in the plot. Use same symbol codes as in the argument 'pch'
+in the R base function 'plot'. By default, c(16, 1) is used, which combines
+with the default in the argument 'cols' to present two groups of datapoints
 as open and close.}
+
+\item{cex}{number indicating the amount by which plotting symbols should
+be scaled relative to the default (1).}
+
+\item{xlab}{A title for the X axis. Defaults to the name of the predictor variable
+in the data.}
+
+\item{ylab}{A title for the Y axis. Defaults to the name of the dependent variable
+in the data.}
+
+\item{lty}{A vector defining the line type of the regression lines for each category.
+Defaults to c(1,2).}
+
+\item{line.col}{A vector of strings defining the line colors of the regression lines for each category.
+Defaults to c('black','black').}
+
+\item{lwd}{A vector defining the line width of the regression lines for each category.
+Defaults to c(1,1).}
+
+\item{legend}{A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.}
 }
 \description{
 Produces a plot showing which values of a categorical moderator have a

@@ -35,7 +35,7 @@
 #' @export
 #' jnt_cat()
 
-jnt_cat <- function(X,Y,m,data,plot.full=F,phylo=F,correlation,cols=c("black","black"),pch=c(16,1),
+jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","black"),pch=c(16,1),
                     cex=1,xlab=X, ylab=Y, legend=F, lty=c(1,2), line.col=c("black","black"),
                     lwd=c(1,1)){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$m)))
@@ -46,16 +46,12 @@ jnt_cat <- function(X,Y,m,data,plot.full=F,phylo=F,correlation,cols=c("black","b
   data <- data[complete.cases(data[ , c(X,Y,m)]), ]
   data[,m] <- as.factor(data[,m])
   levs <- levels(as.factor(droplevels(data[,m])))
-  mod <- summary(lm(data[,Y]~data[,X]*data[,m]))
-  mod.out <- mod
-  if(phylo==T){
-    Xi <- data[,X]
-    Yi <- data[,Y]
-    gi <- data[,m]
-    mod <- gls(Yi~Xi*gi, correlation=correlation,
-               na.action = na.omit)
-    mod.out <- summary(mod)
-  }
+  Xi <- data[,X]
+  Yi <- data[,Y]
+  gi <- data[,m]
+  mod <- gls(Yi~Xi*gi, correlation=correlation,
+             na.action = na.omit)
+  mod.out <- summary(mod)
 
   group1 <- data[ which(data[,m]==levs[1]), ]
   group2 <- data[ which(data[,m]==levs[2]), ]

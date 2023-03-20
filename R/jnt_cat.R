@@ -36,7 +36,7 @@
 #' jnt_cat()
 
 jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","black"),pch=c(16,1),
-                    cex=1,xlab=X, ylab=Y, legend=F, lty=c(1,2), line.col=c("black","black"),
+                    cex=1,xlab=X, ylab=Y, legend=T, lty=c(1,2), line.col=c("black","black"),
                     lwd=c(1,1)){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$m)))
   m1 <- c("Rows with missing data were removed from the analysis")

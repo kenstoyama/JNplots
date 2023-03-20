@@ -9,36 +9,40 @@
 #'  dataset (see argument “data”).
 #' @param Y A character string defining the name of the dependent variable. Must
 #'  be the same as the name of the variable in the dataset (see argument “data”).
-#' @param m A character string defining the name of a continuous moderator (e.g., …, etc).
+#' @param m A character string defining the name of a continuous moderator.
 #'  Must be the same as the name of the variable in the dataset (see argument “data”).
 #'  The variable must be continuous.
-#' @param data The dataset.
-#' @param phylo A logical. It indicates whether a phylogenetically-informed
-#'  analysis will be performed (i.e., PGLS). “F” by default.
+#' @param data A dataframe containing the variables in the model.
 #' @param correlation an optional \link{corStruct} object describing the within-group
 #'  correlation structure. See the documentation of \link{corClasses} for a description of
 #'  the available corStruct classes. If a grouping variable is to be used, it must be
 #'  specified in the form argument to the corStruct constructor. Defaults to NULL,
 #'  corresponding to uncorrelated errors.
 #' @param res A numerical value that aids in the plotting of regions of (non)significance.
-#'  Default=100, higher numbers increase the intensity of colors
+#'  Default=100, higher numbers increase the number of fitted regression lines plotted (N=res-1).
+#' @param xlab A title for the X axis. Defaults to the name of the predictor variable
+#'  in the data.
+#' @param ylab A title for the Y axis. Defaults to the name of the dependent variable
+#'  in the data.
 #' @param col.gradient A logical indicating whether the significant regression lines
-#'  should be plotted with a gradient of colors corresponding to the moderator value used.
+#'  should be plotted with a gradient of colors representing moderator values. Defaults to 'T'.
 #' @param sig_color If col.gradient = F, a character string indicating the color of the significant
-#'  regression lines. Defaults to 'red'.
+#'  regression lines. Defaults to 'lightblue'.
 #' @param nonsig_color If col.gradient = F, a character string indicating the color of the non-significant
 #'  regression lines. Defaults to 'grey'.
 #' @param max_col_grad If col.gradient = T, a character string indicating the maximum color of
 #'  the gradient.
 #' @param min_col_grad If col.gradient = T, a character string indicating the minimum color of
 #'  the gradient.
+#' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
 #' @import scale
 #' @export
 #' jnt_cont()
 
-jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,sig_color="lightblue",
-                      nonsig_color="grey",col.gradient=T,max_col_grad="red",min_col_grad="blue",
-                      legend=T){
+jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=T,
+                     sig_color="lightblue",nonsig_color="grey",max_col_grad="red",min_col_grad="blue",
+                     legend=T){
+
   Xi <- data[,X]
   Yi <- data[,Y]
   gi <- data[,m]

@@ -1,9 +1,9 @@
 #' Calculation and visualization of regions of non-significance to assess the
 #' influence of categorical moderators
 #'
-#' Produces a plot showing which values of a categorical moderator have a
-#' significant influence on the relationship between the dependent and
-#' independent variables.
+#' Produces a plot showing regions of non-significance defined by predictor values
+#' for which no significant differences in the dependent variable are found
+#' between categories.
 #' @param X A character string defining the name of the covariate (e.g., size in
 #'  an allometry analysis). Must be the same as the name of the variable in the
 #'  dataset (see argument “data”).

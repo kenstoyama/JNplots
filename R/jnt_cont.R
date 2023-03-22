@@ -183,8 +183,8 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
     }
 
   }
-  results <- list("coeff" = mod.out,"lower non-significance limit of moderator" = min(x1,x2),
-                  "upper non-significance limit of moderator" = max(x1,x2),
+  results <- list("coeff" = mod.out,"lower (non)significance limit of moderator" = min(x1,x2),
+                  "upper (non)significance limit of moderator" = max(x1,x2),
                   "lower data limit" = valmin, "upper data limit" = valmax)
   return(results)
 }

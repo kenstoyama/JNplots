@@ -69,7 +69,6 @@ the gradient.}
 \item{legend}{A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.}
 }
 \description{
-Produces a plot showing which values of a continuous moderator have a
-significant influence on the relationship between the dependent and
-independent variables.
+Produces a plot showing how changes in the moderator affect the slope and
+significance of the relationship between the dependent variable and the predictor.
 }

@@ -79,7 +79,7 @@ Defaults to c(1,1).}
 \item{legend}{A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.}
 }
 \description{
-Produces a plot showing which values of a categorical moderator have a
-significant influence on the relationship between the dependent and
-independent variables.
+Produces a plot showing regions of non-significance defined by predictor values
+for which no significant differences in the dependent variable are found
+between categories.
 }

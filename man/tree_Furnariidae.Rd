@@ -14,7 +14,7 @@ data(tree_F)
 Phylogeny of Furnariidae
 }
 \references{
-Marcondes et al. (2021) The American Naturalist 197:592-606
-(\href{https://pubmed.ncbi.nlm.nih.gov/33908827/}{PubMed})
+Harvey et al. (2020) Science 370:1343-1348
+(\href{https://pubmed.ncbi.nlm.nih.gov/33303617/}{PubMed})
 }
 \keyword{phylogeny}

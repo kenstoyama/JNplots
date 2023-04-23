@@ -8,7 +8,7 @@
 An object of class phylo
 }
 \usage{
-data(tree_F)
+data(tree_Furnariidae)
 }
 \description{
 Phylogeny of Furnariidae

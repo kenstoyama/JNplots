@@ -13,7 +13,8 @@
 #'
 #' @references Marcondes et al. (2021) The American Naturalist 197:592-606
 #' (\href{https://pubmed.ncbi.nlm.nih.gov/33908827/}{PubMed})
-#' Seeholzer et al. (2017) Evolution 71:702:715
+#'
+#' @references Seeholzer et al. (2017) Evolution 71:702:715
 #' (\href{https://pubmed.ncbi.nlm.nih.gov/28071791/}{PubMed})
 #'
 "bird_colors"

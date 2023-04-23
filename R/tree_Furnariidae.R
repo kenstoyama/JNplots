@@ -3,7 +3,7 @@
 #'
 #' @docType phylogeny
 #'
-#' @usage data(tree_F)
+#' @usage data(tree_Furnariidae)
 #'
 #' @format An object of class phylo
 #'

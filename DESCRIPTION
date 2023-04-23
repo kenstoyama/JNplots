@@ -1,12 +1,11 @@
 Package: JNplots
 Type: Package
-Title: What the Package Does (Title Case)
+Title: JNplots: an R package to visualize outputs from the Johnson-Neyman technique for categorical and continuous moderators, including options for phylogenetic regressions.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Ken S. Toyama
+Maintainer: Ken S. Toyama <ken.toyama@mail.utoronto.ca>
+Description: Aids in the calculation and visualization of regions of non-significance using the Johnson-Neyman technique to assess the influence of categorical and continuous moderators. Allows correcting for phylogenetic relatedness.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3.9000

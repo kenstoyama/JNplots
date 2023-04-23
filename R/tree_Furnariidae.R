@@ -1,7 +1,7 @@
 #' Phylogeny of Furnariidae
 #'
 #'
-#' @docType phylogeny
+#' @docType data
 #'
 #' @usage data(tree_Furnariidae)
 #'

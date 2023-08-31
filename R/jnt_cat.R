@@ -43,7 +43,7 @@
 #' @param lwd A vector defining the line width of the regression lines for each category.
 #' Defaults to c(1,1).
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
-#' @import nlme scales
+#' @import nlme
 #' @export
 #' jnt_cat()
 
@@ -188,7 +188,7 @@ jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","blac
     abline(a2,b2,lty=lty[2],col=line.col[2],lwd=lwd[2])
     polygon(c(xlower,xlower,xupper,xupper),c(-2*(abs(min(data[,Y]))),max(data[,Y])*2,
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
-                                                                                        maxColorValue=255,scales::alpha=130), border=NA)
+                                                                                        maxColorValue=255,alpha=130), border=NA)
   }else{
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,type="n")
     points(group1[,X],group1[,Y],col=cols[1],pch=pch[1],cex=cex)
@@ -197,7 +197,7 @@ jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","blac
     abline(a2,b2,lty=lty[2],col=line.col[2],lwd=lwd[2])
     polygon(c(xlower,xlower,xupper,xupper),c(-2*(abs(min(data[,Y]))),max(data[,Y])*2,
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
-                                                                                        maxColorValue=255,scales::alpha=130), border=NA)
+                                                                                        maxColorValue=255,alpha=130), border=NA)
   }
   if(legend==T){
     legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,

@@ -45,7 +45,7 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
   Xi <- data[,X]
   Yi <- data[,Y]
   gi <- data[,m]
-  mod <- gls(Yi~Xi*gi, correlation=correlation,
+  mod <- nlme::gls(Yi~Xi*gi, correlation=correlation,
              na.action = na.omit)
   mod.out <- summary(mod)
   varcov <- vcov(mod.out)

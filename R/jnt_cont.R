@@ -36,6 +36,9 @@
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
 #' @import nlme scales
 #' @importFrom ape corPagel
+#' @importFrom grDevices colorRampPalette rgb
+#' @importFrom graphics abline par points polygon
+#' @importFrom stats complete.cases na.omit qf vcov
 #' @export
 
 jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=T,

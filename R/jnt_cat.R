@@ -61,7 +61,7 @@ jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","blac
   Xi <- data[,X]
   Yi <- data[,Y]
   gi <- data[,m]
-  mod <- gls(Yi~Xi*gi, correlation=correlation,
+  mod <- nlme::gls(Yi~Xi*gi, correlation=correlation,
              na.action = na.omit)
   mod.out <- summary(mod)
 

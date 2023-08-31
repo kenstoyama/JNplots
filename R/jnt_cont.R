@@ -34,7 +34,7 @@
 #' @param min_col_grad If col.gradient = T, a character string indicating the minimum color of
 #'  the gradient.
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
-#' @import ape nlme scales
+#' @import nlme scales
 #' @export
 #' jnt_cont()
 
@@ -118,7 +118,7 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
         }else{ # if it is not, use the color for non significant regions
           inside_color <- nonsig_color
         }
-        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(inside_color,0.5))
+        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=scales::alpha(inside_color,0.5))
         aaa[c] <- val
         val <- val+nn
         c <- c+1
@@ -129,7 +129,7 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
         }else{ # if it is not, use the color for non significant regions
           outside_color <- nonsig_color
         }
-        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(outside_color,0.5))
+        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=scales::alpha(outside_color,0.5))
         aaa[c] <- val
         val <- val+nn
         c <- c+1
@@ -141,7 +141,7 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
         }else{
           inside_color <- nonsig_color
         }
-        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(inside_color,0.5))
+        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=scales::alpha(inside_color,0.5))
         aaa[c] <- val
         val <- val+nn
         c <- c+1
@@ -151,7 +151,7 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
         }else{
           outside_color <- nonsig_color
         }
-        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=alpha(outside_color,0.5))
+        abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*val),b=(mod.out$coefficients[2]+mod.out$coefficients[4]*val),col=scales::alpha(outside_color,0.5))
         aaa[c] <- val
         val <- val+nn
         c <- c+1

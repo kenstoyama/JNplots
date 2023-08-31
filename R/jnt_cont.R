@@ -36,7 +36,7 @@
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
 #' @import nlme scales
 #' @importFrom ape corPagel
-#' @export
+#' @export jnt_cont()
 
 jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=T,
                      sig_color="lightblue",nonsig_color="grey",max_col_grad="red",min_col_grad="blue",

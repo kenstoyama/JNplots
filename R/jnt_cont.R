@@ -39,6 +39,9 @@
 #' @importFrom grDevices colorRampPalette rgb
 #' @importFrom graphics abline par points polygon
 #' @importFrom stats complete.cases na.omit qf vcov
+#' @examples
+#' data(lizard_home_range)
+#' jnt_cont(X='PHR95_overlap_z', Y='hrsize95', m='degree_z', data=lizard_home_range, xlab = 'home range overlap 95', ylab='home range size 95')
 #' @export
 
 jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=T,

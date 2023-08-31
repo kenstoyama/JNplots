@@ -48,6 +48,9 @@
 #' @importFrom grDevices colorRampPalette rgb
 #' @importFrom graphics abline par points polygon
 #' @importFrom stats complete.cases na.omit qf vcov
+#' @examples
+#' data(microlophus)
+#' jnt_cat(X='svl', Y='hl', m='species', data=microlophus, plot.full = T, xlab='log(SVL)', ylab='log(head length)')
 #' @export
 
 jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","black"),pch=c(16,1),

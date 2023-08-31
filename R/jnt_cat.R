@@ -44,7 +44,7 @@
 #' Defaults to c(1,1).
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
 #' @import nlme scales
-#' @importFrom ape corBrownian
+#' @importFrom ape corPagel
 #' @export
 #' jnt_cat()
 

@@ -85,5 +85,6 @@ between categories.
 }
 \examples{
 data(microlophus)
+par(pty='s')
 jnt_cat(X='svl', Y='hl', m='species', data=microlophus, plot.full = T, xlab='log(SVL)', ylab='log(head length)')
 }

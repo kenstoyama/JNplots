@@ -45,7 +45,7 @@
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
 #' @import nlme scales
 #' @importFrom ape corPagel
-#' @export jnt_cat()
+#' @export
 
 jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","black"),pch=c(16,1),
                     cex=1,xlab=X, ylab=Y, lty=c(1,2), line.col=c("black","black"),

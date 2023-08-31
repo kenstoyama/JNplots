@@ -1,6 +1,6 @@
 Package: JNplots
 Type: Package
-Title: JNplots: an R package to visualize outputs from the Johnson-Neyman technique for categorical and continuous moderators, including options for phylogenetic regressions.
+Title: JNplots: an R package to visualize outputs from the Johnson-Neyman technique for categorical and continuous moderators, including options for phylogenetic regressions
 Version: 0.1.0
 Author: Ken S. Toyama
 Maintainer: Ken S. Toyama <ken.toyama@mail.utoronto.ca>

@@ -34,7 +34,8 @@
 #' @param min_col_grad If col.gradient = T, a character string indicating the minimum color of
 #'  the gradient.
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
-#' @import ape nlme scales
+#' @import nlme scales
+#' @importFrom ape corBrownian
 #' @export
 #' jnt_cont()
 

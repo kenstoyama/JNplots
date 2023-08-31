@@ -43,7 +43,8 @@
 #' @param lwd A vector defining the line width of the regression lines for each category.
 #' Defaults to c(1,1).
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
-#' @import ape nlme
+#' @import nlme scales
+#' @importFrom ape corBrownian
 #' @export
 #' jnt_cat()
 

@@ -51,7 +51,8 @@
 #' @examples
 #' data(microlophus)
 #' par(pty='s')
-#' jnt_cat(X='svl', Y='hl', m='species', data=microlophus, plot.full = T, xlab='log(SVL)', ylab='log(head length)')
+#' jnt_cat(X='svl', Y='hl', m='species', data=microlophus,
+#' xlab='log(SVL)', ylab='log(head length)')
 #' @export
 
 jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","black"),pch=c(16,1),

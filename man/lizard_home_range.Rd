@@ -15,7 +15,6 @@ Dataset includes data on the determinants of home range size in the lizard
 Tiliqua rugosa
 }
 \references{
-Payne et al. (2021) Ecological Monographs https://doi.org/10.1002/ecm.1519
-(\href{https://pubag.nal.usda.gov/catalog/7860136}{PubAg})
+
 }
 \keyword{datasets}

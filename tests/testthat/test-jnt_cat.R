@@ -1,7 +1,7 @@
 library(testthat)
 library(JNplots)
 
-# Test whether the expected intervals are found
+# Test whether the expected intervals are found (significant interaction)
 test_that("expected JN interval is found", {
   z <- jnt_cat(X='svl', Y='hl', m='species', data=microlophus, plot.full = T,
                xlab='log(SVL)', ylab='log(head length)')

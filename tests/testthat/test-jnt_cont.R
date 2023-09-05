@@ -8,6 +8,16 @@ test_that("expected JN interval is found", {
   expect_equal(as.numeric(z$`upper (non)significance limit of moderator`), -1.360364, tolerance = 0.0001)
 })
 
+test_that("expected JN interval is found", {
+  options(warn=-1)
+  z <- jnt_cont(X='bio12', Y='back_bright', m='bio1', data=bird_colors,
+                correlation=corPagel(1, tree_Furnariidae),xlab='precipitation (mm)',
+                ylab='back brightness (scaled)',res=200)
+  expect_equal(as.numeric(z$`lower (non)significance limit of moderator`), 31.10611, tolerance = 0.0001)
+  expect_equal(as.numeric(z$`upper (non)significance limit of moderator`), 84.8527, tolerance = 0.0001)
+  options(warn=0)
+})
+
 # Test whether the output is a list
 test_that("jnt_cont() returns a list", {
   z <- jnt_cont(X='PHR95_overlap_z', Y='hrsize95', m='degree_z', data=lizard_home_range,

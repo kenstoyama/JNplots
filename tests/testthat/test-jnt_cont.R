@@ -18,7 +18,7 @@ test_that("expected JN interval is found", {
 
 # Test whether the expected intervals are found (non-significant interaction)
 test_that("expected JN interval is found", {
-  z <- jnt_cont(X="Sepal.Length",Y="Sepal.Width",m="Petal.Width",data=iris)
+  z <- jnt_cont(X="Petal.Length",Y="Sepal.Width",m="Petal.Width",data=iris)
   expect_equal(as.numeric(z$`lower (non)significance limit of moderator`), -2.657925, tolerance = 0.0001)
   expect_equal(as.numeric(z$`upper (non)significance limit of moderator`), 0.7872244, tolerance = 0.0001)
 })

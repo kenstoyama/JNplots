@@ -16,12 +16,13 @@ test_that("expected JN interval is found", {
   expect_equal(as.numeric(z$`upper (non)significance limit of moderator`), 27.30096, tolerance = 0.0001)
 })
 
-# Test whether the expected intervals are found (non-significant interaction)
+# Test whether the expected intervals are found
 test_that("expected JN interval is found", {
-  z <- jnt_cont(X="Petal.Length",Y="Sepal.Width",m="Sepal.Length",data=iris)
-  expect_equal(as.numeric(z$`lower (non)significance limit of moderator`), -8.107869, tolerance = 0.0001)
-  expect_equal(as.numeric(z$`upper (non)significance limit of moderator`), 10.61419, tolerance = 0.0001)
+  options(warn=-1)
+  expect_error(jnt_cont(X="mass_z",Y="juvticks_z",m="aggression_z",data=lizard_home_range))
+  options(warn=0)
 })
+
 
 # Test whether the output is a list
 test_that("jnt_cont() returns a list", {

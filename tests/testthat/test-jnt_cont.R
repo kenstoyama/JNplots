@@ -9,13 +9,9 @@ test_that("expected JN interval is found", {
 })
 
 test_that("expected JN interval is found", {
-  options(warn=-1)
-  z <- jnt_cont(X='bio12', Y='back_bright', m='bio1', data=bird_colors,
-                correlation=corPagel(1, tree_Furnariidae),xlab='precipitation (mm)',
-                ylab='back brightness (scaled)',res=200)
-  expect_equal(as.numeric(z$`lower (non)significance limit of moderator`), 31.10611, tolerance = 0.0001)
-  expect_equal(as.numeric(z$`upper (non)significance limit of moderator`), 84.8527, tolerance = 0.0001)
-  options(warn=0)
+  z <- jnt_cont(X="Sepal.Length",Y="Sepal.Width",m="Petal.Length",data=iris)
+  expect_equal(as.numeric(z$`lower (non)significance limit of moderator`), -3.770205, tolerance = 0.0001)
+  expect_equal(as.numeric(z$`upper (non)significance limit of moderator`), 27.30096, tolerance = 0.0001)
 })
 
 # Test whether the output is a list

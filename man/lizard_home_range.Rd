@@ -16,6 +16,6 @@ Tiliqua rugosa
 }
 \references{
 Payne et al. (2021) Ecological Monographs 92:e1519
-(\href{https://doi.org/10.1002/ecm.1519}{doi})
+(/doi{10.1002/ecm.1519})
 }
 \keyword{datasets}

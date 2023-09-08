@@ -44,4 +44,5 @@ Three of them correspond to this being a new submission. One note ("...no
 command 'tidy' found") is obtained when testing with rhub on Ubuntu and is, 
 as far as I know, caused by problems with the testing platform. The two notes
 obtained when testing on the Windows server seem to be common and also caused 
-by an issue with rhub
+by an issue with rhub. Local R CMD check results in no errors, warnings, 
+or notes.

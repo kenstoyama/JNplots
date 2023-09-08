@@ -84,8 +84,10 @@ for which no significant differences in the dependent variable are found
 between categories.
 }
 \examples{
+\dontrun{
 data(microlophus)
 par(pty='s')
 jnt_cat(X='svl', Y='hl', m='species', data=microlophus,
 xlab='log(SVL)', ylab='log(head length)')
+}
 }

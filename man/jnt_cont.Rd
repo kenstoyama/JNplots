@@ -73,9 +73,11 @@ Produces a plot showing how changes in the moderator affect the slope and
 significance of the relationship between the dependent variable and the predictor.
 }
 \examples{
+\dontrun{
 data(lizard_home_range)
 par(pty='s')
 jnt_cont(X='PHR95_overlap_z', Y='hrsize95', m='degree_z',
 data=lizard_home_range, xlab = 'home range overlap 95',
 ylab='home range size 95')
+}
 }

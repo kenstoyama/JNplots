@@ -6,6 +6,7 @@ Author: Ken S. Toyama
 Maintainer: Ken S. Toyama <ken.toyama@mail.utoronto.ca>
 Description: Aids in the calculation and visualization of regions of non-significance using the Johnson-Neyman technique to assess the influence of categorical and continuous moderators. Allows correcting for phylogenetic relatedness.
 License: MIT + file LICENSE
+URL: https://https://github.com/kenstoyama/JNplots
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3.9000

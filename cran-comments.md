@@ -38,9 +38,10 @@
 
 0 errors ✔ | 0 warnings ✔ | 6 notes ✖
 
-## About notes: 
-# Three of them correspond to this being a new submission. One note ("...no 
-# command 'tidy' found") is obtained when testing with rhub on Ubuntu and is, 
-# as far as I know, caused by problems with the testing platform. The two notes
-# obtained when testing on the Windows server seem to be common and also caused 
-# by an issue with rhub
+## About notes
+
+Three of them correspond to this being a new submission. One note ("...no 
+command 'tidy' found") is obtained when testing with rhub on Ubuntu and is, 
+as far as I know, caused by problems with the testing platform. The two notes
+obtained when testing on the Windows server seem to be common and also caused 
+by an issue with rhub

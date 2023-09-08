@@ -11,7 +11,7 @@
 #'
 #' @keywords datasets
 #'
-#' @references Payne et al. (2021) Ecological Monographs https://doi.org/10.1002/ecm.1519
-#' (\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1519}{PubMed})
+#' @references Payne et al. (2021) Ecological Monographs 92:e1519
+#' (\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1519}{doi})
 #'
 "lizard_home_range"

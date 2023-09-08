@@ -12,6 +12,6 @@
 #' @keywords datasets
 #'
 #' @references Payne et al. (2021) Ecological Monographs 92:e1519
-#' (/doi{10.1002/ecm.1519})
+#' (\doi{10.1002/ecm.1519})
 #'
 "lizard_home_range"

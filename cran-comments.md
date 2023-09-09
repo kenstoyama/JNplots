@@ -12,6 +12,8 @@
 
 ❯ On windows-x86_64-devel (r-devel)
   checking for non-standard things in the check directory ... NOTE
+  Found the following files/directories:
+    ''NULL''
 
 ❯ On windows-x86_64-devel (r-devel)
   checking for detritus in the temp directory ... NOTE
@@ -19,7 +21,7 @@
     'lastMiKTeXException'
 
 ❯ On ubuntu-gcc-release (r-release)
-  checking CRAN incoming feasibility ... [3s/11s] NOTE
+  checking CRAN incoming feasibility ... [3s/13s] NOTE
   Maintainer: ‘Ken Toyama <ken.toyama@mail.utoronto.ca>’
   
   New submission
@@ -29,7 +31,7 @@
   Skipping checking HTML validation: no command 'tidy' found
 
 ❯ On fedora-clang-devel (r-devel)
-  checking CRAN incoming feasibility ... [4s/15s] NOTE
+  checking CRAN incoming feasibility ... [3s/16s] NOTE
   Maintainer: ‘Ken Toyama <ken.toyama@mail.utoronto.ca>’
   
   New submission

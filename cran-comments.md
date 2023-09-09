@@ -6,14 +6,12 @@
 ## R CMD check results
 ❯ On windows-x86_64-devel (r-devel)
   checking CRAN incoming feasibility ... NOTE
-  Maintainer: 'Ken S. Toyama <ken.toyama@mail.utoronto.ca>'
+  Maintainer: 'Ken Toyama <ken.toyama@mail.utoronto.ca>'
   
   New submission
 
 ❯ On windows-x86_64-devel (r-devel)
   checking for non-standard things in the check directory ... NOTE
-  Found the following files/directories:
-    ''NULL''
 
 ❯ On windows-x86_64-devel (r-devel)
   checking for detritus in the temp directory ... NOTE
@@ -22,7 +20,7 @@
 
 ❯ On ubuntu-gcc-release (r-release)
   checking CRAN incoming feasibility ... [3s/11s] NOTE
-  Maintainer: ‘Ken S. Toyama <ken.toyama@mail.utoronto.ca>’
+  Maintainer: ‘Ken Toyama <ken.toyama@mail.utoronto.ca>’
   
   New submission
 
@@ -31,8 +29,8 @@
   Skipping checking HTML validation: no command 'tidy' found
 
 ❯ On fedora-clang-devel (r-devel)
-  checking CRAN incoming feasibility ... [3s/12s] NOTE
-  Maintainer: ‘Ken S. Toyama <ken.toyama@mail.utoronto.ca>’
+  checking CRAN incoming feasibility ... [4s/15s] NOTE
+  Maintainer: ‘Ken Toyama <ken.toyama@mail.utoronto.ca>’
   
   New submission
 

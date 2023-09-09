@@ -2,8 +2,7 @@ Package: JNplots
 Type: Package
 Title: Visualize Outputs from the 'Johnson-Neyman' Technique for Categorical and Continuous Moderators, Including Options for Phylogenetic Regressions
 Version: 0.1.0
-Author: Ken S. Toyama
-Maintainer: Ken S. Toyama <ken.toyama@mail.utoronto.ca>
+Authors@R: c(person("Ken", "Toyama", comment = c(ORCID = "0000-0002-8331-4894"), email = "ken.toyama@mail.utoronto.ca", role = c("cre","aut")))
 Description: Aids in the calculation and visualization of regions of non-significance using the 'Johnson-Neyman' technique to assess the influence of categorical and continuous moderators. Allows correcting for phylogenetic relatedness.
 License: MIT + file LICENSE
 URL: https://github.com/kenstoyama/JNplots

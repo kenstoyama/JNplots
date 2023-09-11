@@ -46,7 +46,7 @@
 #' @return List with four elements: (1) results from the linear model, (2) lower and
 #' (3) upper limits of non-significance in the predictor, and (4) a graphical output.
 #' @import nlme scales ape
-#' @importFrom grDevices colorRampPalette rgb
+#' @importFrom grDevices colorRampPalette rgb recordPlot
 #' @importFrom graphics abline par points polygon
 #' @importFrom stats complete.cases na.omit qf vcov
 #' @examples

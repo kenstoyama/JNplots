@@ -38,7 +38,7 @@
 #' (3) upper limits of (non)significance in the moderator, (4) lower and (5) upper
 #' data limit in the data, and (6) a graphical output.
 #' @import nlme scales ape
-#' @importFrom grDevices colorRampPalette rgb
+#' @importFrom grDevices colorRampPalette rgb recordPlot
 #' @importFrom graphics abline par points polygon
 #' @importFrom stats complete.cases na.omit qf vcov
 #' @examples

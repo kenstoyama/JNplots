@@ -51,7 +51,6 @@
 #' @importFrom stats complete.cases na.omit qf vcov
 #' @examples
 #' data(microlophus)
-#' par(pty='s')
 #' jnt_cat(X='svl', Y='hl', m='species', data=microlophus,
 #' xlab='log(SVL)', ylab='log(head length)')
 #' @references Toyama, K. S. (2023). JNplots: an R package to visualize outputs

@@ -16,7 +16,7 @@
 #' @param data A dataframe containing the variables in the model.
 #' @param plot.full A logical. It indicates whether the plot should show the
 #'  JN non-significance regions even if they don’t or just partially overlap the data.
-#'  The default option is 'F', meaning that the plot limits will depend only on the range of predictor values
+#'  The default option is 'FALSE', meaning that the plot limits will depend only on the range of predictor values
 #' @param correlation an optional \link{corStruct} object describing the within-group
 #'  correlation structure. See the documentation of \link{corClasses} for a description of
 #'  the available corStruct classes. If a grouping variable is to be used, it must be
@@ -42,7 +42,7 @@
 #' Defaults to c('black','black').
 #' @param lwd A vector defining the line width of the regression lines for each category.
 #' Defaults to c(1,1).
-#' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
+#' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'TRUE'.
 #' @import nlme scales ape
 #' @importFrom grDevices colorRampPalette rgb
 #' @importFrom graphics abline par points polygon
@@ -54,9 +54,9 @@
 #' xlab='log(SVL)', ylab='log(head length)')
 #' @export
 
-jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","black"),pch=c(16,1),
+jnt_cat <- function(X,Y,m,data,plot.full=FALSE,correlation=NULL,cols=c("black","black"),pch=c(16,1),
                     cex=1,xlab=X, ylab=Y, lty=c(1,2), line.col=c("black","black"),
-                    lwd=c(1,1),legend=T){
+                    lwd=c(1,1),legend=TRUE){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$m)))
   m1 <- c("Rows with missing data were removed from the analysis")
   if(na_sum>0){
@@ -100,12 +100,12 @@ jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","blac
   xcoord_group2 <- X2    # X2
   ycoord_group2 <- Y2    # Y2
 
-  zx1 <- ((sum(xcoord_group1,na.rm = T))^2)/n1
-  zx2 <- ((sum(xcoord_group2,na.rm = T))^2)/n2
-  zy1 <- ((sum(ycoord_group1,na.rm = T))^2)/n1
-  zy2 <- ((sum(ycoord_group2,na.rm = T))^2)/n2
-  zxy1 <- ((sum(xcoord_group1,na.rm = T))*(sum(ycoord_group1,na.rm = T)))/n1
-  zxy2 <- ((sum(xcoord_group2,na.rm = T))*(sum(ycoord_group2,na.rm = T)))/n2
+  zx1 <- ((sum(xcoord_group1,na.rm = TRUE))^2)/n1
+  zx2 <- ((sum(xcoord_group2,na.rm = TRUE))^2)/n2
+  zy1 <- ((sum(ycoord_group1,na.rm = TRUE))^2)/n1
+  zy2 <- ((sum(ycoord_group2,na.rm = TRUE))^2)/n2
+  zxy1 <- ((sum(xcoord_group1,na.rm = TRUE))*(sum(ycoord_group1,na.rm = TRUE)))/n1
+  zxy2 <- ((sum(xcoord_group2,na.rm = TRUE))*(sum(ycoord_group2,na.rm = TRUE)))/n2
 
   ######## sumx1 ########
   c <- 0
@@ -185,7 +185,7 @@ jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","blac
   }
 
   #### PLOT
-  if(plot.full==T){
+  if(plot.full==TRUE){
     min.lim <- min(data[,X],xlower)
     max.lim <- max(data[,X],xupper)
     plot(data[,X],data[,Y],xlab=xlab,ylab=ylab,xlim=c(min.lim,max.lim),type="n")
@@ -206,7 +206,7 @@ jnt_cat <- function(X,Y,m,data,plot.full=F,correlation=NULL,cols=c("black","blac
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
                                                                                         maxColorValue=255,alpha=130), border=NA)
   }
-  if(legend==T){
+  if(legend==TRUE){
     legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
            c(levs[1], levs[2]),
            pch=c(pch[1],pch[2]),cex=0.8,col=c(cols[1],cols[2]))

@@ -24,16 +24,16 @@
 #' @param ylab A title for the Y axis. Defaults to the name of the dependent variable
 #'  in the data.
 #' @param col.gradient A logical indicating whether the significant regression lines
-#'  should be plotted with a gradient of colors representing moderator values. Defaults to 'T'.
-#' @param sig_color If col.gradient = F, a character string indicating the color of the significant
+#'  should be plotted with a gradient of colors representing moderator values. Defaults to 'TRUE'.
+#' @param sig_color If col.gradient = FALSE, a character string indicating the color of the significant
 #'  regression lines. Defaults to 'lightblue'.
-#' @param nonsig_color If col.gradient = F, a character string indicating the color of the non-significant
+#' @param nonsig_color If col.gradient = FALSE, a character string indicating the color of the non-significant
 #'  regression lines. Defaults to 'grey'.
-#' @param max_col_grad If col.gradient = T, a character string indicating the maximum color of
+#' @param max_col_grad If col.gradient = TRUE, a character string indicating the maximum color of
 #'  the gradient.
-#' @param min_col_grad If col.gradient = T, a character string indicating the minimum color of
+#' @param min_col_grad If col.gradient = TRUE, a character string indicating the minimum color of
 #'  the gradient.
-#' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.
+#' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'TRUE'.
 #' @import nlme scales ape
 #' @importFrom grDevices colorRampPalette rgb
 #' @importFrom graphics abline par points polygon
@@ -46,9 +46,9 @@
 #' ylab='home range size 95')
 #' @export
 
-jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=T,
+jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=TRUE,
                      sig_color="lightblue",nonsig_color="grey",max_col_grad="red",min_col_grad="blue",
-                     legend=T){
+                     legend=TRUE){
 
   Xi <- data[,X]
   Yi <- data[,Y]
@@ -77,17 +77,17 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
 
   plot(data[,X],data[,Y],xlab=xlab,ylab=ylab)
 
-  val <- min(min(data[,m],na.rm = T),min(x1,x2)) # minimum value to plot
-  valmin <- min(data[,m],na.rm = T) # minimum value in data
-  val_max <- max(max(data[,m],na.rm = T),max(x1,x2)) # maximum value to plot
-  valmax <- max(data[,m],na.rm = T) # maximum value in data
+  val <- min(min(data[,m],na.rm = TRUE),min(x1,x2)) # minimum value to plot
+  valmin <- min(data[,m],na.rm = TRUE) # minimum value in data
+  val_max <- max(max(data[,m],na.rm = TRUE),max(x1,x2)) # maximum value to plot
+  valmax <- max(data[,m],na.rm = TRUE) # maximum value in data
 
   # test if significant values are inside or outside x1 and x2
   inside_color_initial <- nonsig_color
   outside_color_initial <- sig_color
   test_x <- min(x1,x2)
   list_b <- c()
-  inside_sig = T
+  inside_sig = TRUE
   nn <- (val_max-val)/res
   c <- 1
   while(test_x<=max(x1,x2)){
@@ -96,15 +96,15 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
     test_x <- test_x+nn
   }
   if (min(list_b)<0 & max(list_b)>0){
-    inside_sig <- F
+    inside_sig <- FALSE
   }
 
-  if (inside_sig==T){
+  if (inside_sig==TRUE){
     inside_color_initial <- sig_color
     outside_color_initial <- nonsig_color
   }
 
-  if (inside_sig==T){ # how many regression lines will be plotted as significant? (need for color gradient)
+  if (inside_sig==TRUE){ # how many regression lines will be plotted as significant? (need for color gradient)
     gradient_sep <- res/length(list_b)
   } else {
     gradient_sep <- res/(res-length(list_b))
@@ -118,7 +118,7 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
   c <- 1
   c_col <- 1
   while(val+nn<val_max){
-    if (col.gradient==T){
+    if (col.gradient==TRUE){
       if(val+nn>min(x1,x2) & val+nn<max(x1,x2)){ # does it fall within the region*?
         if(inside_color_initial == sig_color){ # is it a region* of significance?
           inside_color <- col.gradient.list[c_col*gradient_sep] # if it is, use the col gradient
@@ -131,7 +131,7 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
         val <- val+nn
         c <- c+1
       }else{
-        if(col.gradient==T & outside_color_initial == sig_color){ # is the outside region one of significance?
+        if(col.gradient==TRUE & outside_color_initial == sig_color){ # is the outside region one of significance?
           outside_color <- col.gradient.list[c_col*gradient_sep] # if it is, use the color gradient
           c_col <- c_col+1
         }else{ # if it is not, use the color for non significant regions
@@ -166,14 +166,14 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
       }
     }
   }
-  abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*min(data[,m],na.rm = T)),
-         b=(mod.out$coefficients[2]+mod.out$coefficients[4]*min(data[,m],na.rm = T)),
+  abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*min(data[,m],na.rm = TRUE)),
+         b=(mod.out$coefficients[2]+mod.out$coefficients[4]*min(data[,m],na.rm = TRUE)),
          col="black",lwd=1,lty=2)
-  abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*max(data[,m],na.rm = T)),
-         b=(mod.out$coefficients[2]+mod.out$coefficients[4]*max(data[,m],na.rm = T)),
+  abline(a=(mod.out$coefficients[1]+mod.out$coefficients[3]*max(data[,m],na.rm = TRUE)),
+         b=(mod.out$coefficients[2]+mod.out$coefficients[4]*max(data[,m],na.rm = TRUE)),
          col="black",lwd=1,lty=1)
-  if(legend==T){
-    if(col.gradient==T){
+  if(legend==TRUE){
+    if(col.gradient==TRUE){
       legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/5), bty='n', xpd=NA,
              c("max mod value", "min mod value", "non-sig relationships"),
              lty=c(1,2,1),lwd=c(1.5,1.5,1.5),cex=0.7,col=c("black","black",nonsig_color))

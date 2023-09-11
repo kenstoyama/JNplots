@@ -1,6 +1,64 @@
 # New submission
 
-## Comments on previous version and fixes
+## Test environments
+- R-hub windows-x86_64-devel (r-devel)
+- R-hub ubuntu-gcc-release (r-release)
+- R-hub fedora-clang-devel (r-devel)
+
+## R CMD check results
+❯ On windows-x86_64-devel (r-devel)
+  checking CRAN incoming feasibility ... NOTE
+  Maintainer: 'Ken Toyama <ken.toyama@mail.utoronto.ca>'
+  
+  New submission
+  
+  Possibly misspelled words in DESCRIPTION:
+    Curran (6:169)
+
+❯ On windows-x86_64-devel (r-devel)
+  checking for non-standard things in the check directory ... NOTE
+  Found the following files/directories:
+    ''NULL''
+
+❯ On windows-x86_64-devel (r-devel)
+  checking for detritus in the temp directory ... NOTE
+  Found the following files/directories:
+    'lastMiKTeXException'
+
+❯ On ubuntu-gcc-release (r-release)
+  checking CRAN incoming feasibility ... [6s/23s] NOTE
+  Maintainer: ‘Ken Toyama <ken.toyama@mail.utoronto.ca>’
+  
+  New submission
+  
+  Possibly misspelled words in DESCRIPTION:
+    Curran (6:169)
+
+❯ On ubuntu-gcc-release (r-release), fedora-clang-devel (r-devel)
+  checking HTML version of manual ... NOTE
+  Skipping checking HTML validation: no command 'tidy' found
+
+❯ On fedora-clang-devel (r-devel)
+  checking CRAN incoming feasibility ... [6s/27s] NOTE
+  Maintainer: ‘Ken Toyama <ken.toyama@mail.utoronto.ca>’
+  
+  New submission
+  
+  Possibly misspelled words in DESCRIPTION:
+    Curran (6:169)
+
+0 errors ✔ | 0 warnings ✔ | 6 notes ✖
+
+## About notes
+
+Three of them correspond to this being a new submission. Also, "Curran" is a 
+last name. One note ("...no command 'tidy' found") is obtained when testing with 
+rhub on Ubuntu and is, as far as I know, caused by problems with the testing 
+platform. The two notes obtained when testing on the Windows server seem to be 
+common and also caused by an issue with rhub. Local R CMD check results in no 
+errors, warnings, or notes.
+
+## Comments made on previous submission and fixes
 
 Please reduce the length of the title to less than 65 characters.
 -Title was reduced.

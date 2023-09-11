@@ -1,3 +1,31 @@
+# New submission
+
+## Comments on previous version and fixes
+
+Please reduce the length of the title to less than 65 characters.
+-Title was reduced.
+
+If there are references describing the methods in your package, please
+add these in the description field of your DESCRIPTION file...
+-I added a reference in the description field.
+
+Please write TRUE and FALSE instead of T and F.
+-Fixed in both functions.
+
+Please add \value to .Rd files regarding exported methods and explain
+the functions results in the documentation. Please write about the
+structure of the output (class) and also what the output means. (If a
+function does not return a value, please document that too, e.g.
+\value{No return value, called for side effects} or similar)
+-Added that information in the documentation.
+
+Please always make sure to reset to user's options(), working directory
+or par() after you changed it in examples and vignettes and demos.
+-The changes in par in the examples were removed to avoid changing those settings.
+
+
+# First submission
+
 ## Test environments
 - R-hub windows-x86_64-devel (r-devel)
 - R-hub ubuntu-gcc-release (r-release)
@@ -38,7 +66,7 @@
 
 0 errors ✔ | 0 warnings ✔ | 6 notes ✖
 
-# About notes
+## About notes
 
 Three of them correspond to this being a new submission. One note ("...no 
 command 'tidy' found") is obtained when testing with rhub on Ubuntu and is, 

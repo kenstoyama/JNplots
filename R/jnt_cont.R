@@ -34,6 +34,9 @@
 #' @param min_col_grad If col.gradient = TRUE, a character string indicating the minimum color of
 #'  the gradient.
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'TRUE'.
+#' @return List with six elements: (1) results from the linear model, (2) lower and
+#' (3) upper limits of (non)significance in the moderator, (4) lower and (5) upper
+#' data limit in the data, and (6) an graphical output.
 #' @import nlme scales ape
 #' @importFrom grDevices colorRampPalette rgb
 #' @importFrom graphics abline par points polygon
@@ -44,6 +47,9 @@
 #' jnt_cont(X='PHR95_overlap_z', Y='hrsize95', m='degree_z',
 #' data=lizard_home_range, xlab = 'home range overlap 95',
 #' ylab='home range size 95')
+#' @references Toyama, K. S. (2023). JNplots: an R package to visualize outputs
+#' from the Johnson-Neyman technique for categorical and continuous moderators,
+#' including options for phylogenetic regressions. bioRxiv, 2023-05.
 #' @export
 
 jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=TRUE,
@@ -190,8 +196,9 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
     }
 
   }
+  pl <- recordPlot()
   results <- list("coeff" = mod.out,"lower (non)significance limit of moderator" = min(x1,x2),
                   "upper (non)significance limit of moderator" = max(x1,x2),
-                  "lower data limit" = valmin, "upper data limit" = valmax)
+                  "lower data limit" = valmin, "upper data limit" = valmax, pl)
   return(results)
 }

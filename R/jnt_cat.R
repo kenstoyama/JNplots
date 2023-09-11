@@ -43,7 +43,8 @@
 #' @param lwd A vector defining the line width of the regression lines for each category.
 #' Defaults to c(1,1).
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'TRUE'.
-#' @return Vector of character strings representing the chosen set of colors, in RGB.
+#' @return List with four elements: (1) results from the linear model, (2) lower and
+#' (3) upper limits of non-significance in the predictor, and (4) a graphical output.
 #' @import nlme scales ape
 #' @importFrom grDevices colorRampPalette rgb
 #' @importFrom graphics abline par points polygon
@@ -53,6 +54,9 @@
 #' par(pty='s')
 #' jnt_cat(X='svl', Y='hl', m='species', data=microlophus,
 #' xlab='log(SVL)', ylab='log(head length)')
+#' #' @references Toyama, K. S. (2023). JNplots: an R package to visualize outputs
+#' from the Johnson-Neyman technique for categorical and continuous moderators,
+#' including options for phylogenetic regressions. bioRxiv, 2023-05.
 #' @export
 
 jnt_cat <- function(X,Y,m,data,plot.full=FALSE,correlation=NULL,cols=c("black","black"),pch=c(16,1),

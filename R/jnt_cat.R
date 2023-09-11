@@ -43,6 +43,7 @@
 #' @param lwd A vector defining the line width of the regression lines for each category.
 #' Defaults to c(1,1).
 #' @param legend A logical indicating whether a legend should appear on top of the plot. Defaults to 'TRUE'.
+#' @return Vector of character strings representing the chosen set of colors, in RGB.
 #' @import nlme scales ape
 #' @importFrom grDevices colorRampPalette rgb
 #' @importFrom graphics abline par points polygon
@@ -204,18 +205,19 @@ jnt_cat <- function(X,Y,m,data,plot.full=FALSE,correlation=NULL,cols=c("black","
     abline(a2,b2,lty=lty[2],col=line.col[2],lwd=lwd[2])
     polygon(c(xlower,xlower,xupper,xupper),c(-2*(abs(min(data[,Y]))),max(data[,Y])*2,
                                              max(data[,Y])*2,-2*(abs(min(data[,Y])))),col=rgb(224, 224, 224,
-                                                                                        maxColorValue=255,alpha=130), border=NA)
+                                                                                              maxColorValue=255,alpha=130), border=NA)
   }
   if(legend==TRUE){
     legend(par('usr')[1],par('usr')[4]+((par('usr')[4]-par('usr')[3])/6), bty='n', xpd=NA,
            c(levs[1], levs[2]),
            pch=c(pch[1],pch[2]),cex=0.8,col=c(cols[1],cols[2]))
   }
+  pl <- recordPlot()
   if(((B^2)-A*C)<0){
-    results <- list("coeff" = mod.out)
+    results <- list("coeff" = mod.out,pl)
     return(results)
   }else{
-    results <- list("coeff" = mod.out,"lower limit in X" = xlower, "upper limit in X" = xupper)
+    results <- list("coeff" = mod.out,"lower limit in X" = xlower, "upper limit in X" = xupper,pl)
     return(results)
   }
 }

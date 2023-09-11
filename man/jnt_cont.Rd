@@ -14,12 +14,12 @@ jnt_cont(
   res = 100,
   xlab = X,
   ylab = Y,
-  col.gradient = T,
+  col.gradient = TRUE,
   sig_color = "lightblue",
   nonsig_color = "grey",
   max_col_grad = "red",
   min_col_grad = "blue",
-  legend = T
+  legend = TRUE
 )
 }
 \arguments{
@@ -52,21 +52,26 @@ in the data.}
 in the data.}
 
 \item{col.gradient}{A logical indicating whether the significant regression lines
-should be plotted with a gradient of colors representing moderator values. Defaults to 'T'.}
+should be plotted with a gradient of colors representing moderator values. Defaults to 'TRUE'.}
 
-\item{sig_color}{If col.gradient = F, a character string indicating the color of the significant
+\item{sig_color}{If col.gradient = FALSE, a character string indicating the color of the significant
 regression lines. Defaults to 'lightblue'.}
 
-\item{nonsig_color}{If col.gradient = F, a character string indicating the color of the non-significant
+\item{nonsig_color}{If col.gradient = FALSE, a character string indicating the color of the non-significant
 regression lines. Defaults to 'grey'.}
 
-\item{max_col_grad}{If col.gradient = T, a character string indicating the maximum color of
+\item{max_col_grad}{If col.gradient = TRUE, a character string indicating the maximum color of
 the gradient.}
 
-\item{min_col_grad}{If col.gradient = T, a character string indicating the minimum color of
+\item{min_col_grad}{If col.gradient = TRUE, a character string indicating the minimum color of
 the gradient.}
 
-\item{legend}{A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.}
+\item{legend}{A logical indicating whether a legend should appear on top of the plot. Defaults to 'TRUE'.}
+}
+\value{
+List with six elements: (1) results from the linear model, (2) lower and
+(3) upper limits of (non)significance in the moderator, (4) lower and (5) upper
+data limit in the data, and (6) an graphical output.
 }
 \description{
 Produces a plot showing how changes in the moderator affect the slope and
@@ -78,4 +83,9 @@ par(pty='s')
 jnt_cont(X='PHR95_overlap_z', Y='hrsize95', m='degree_z',
 data=lizard_home_range, xlab = 'home range overlap 95',
 ylab='home range size 95')
+}
+\references{
+Toyama, K. S. (2023). JNplots: an R package to visualize outputs
+from the Johnson-Neyman technique for categorical and continuous moderators,
+including options for phylogenetic regressions. bioRxiv, 2023-05.
 }

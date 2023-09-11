@@ -10,7 +10,7 @@ jnt_cat(
   Y,
   m,
   data,
-  plot.full = F,
+  plot.full = FALSE,
   correlation = NULL,
   cols = c("black", "black"),
   pch = c(16, 1),
@@ -20,7 +20,7 @@ jnt_cat(
   lty = c(1, 2),
   line.col = c("black", "black"),
   lwd = c(1, 1),
-  legend = T
+  legend = TRUE
 )
 }
 \arguments{
@@ -40,7 +40,7 @@ variable must have two levels.}
 
 \item{plot.full}{A logical. It indicates whether the plot should show the
 JN non-significance regions even if they don’t or just partially overlap the data.
-The default option is 'F', meaning that the plot limits will depend only on the range of predictor values}
+The default option is 'FALSE', meaning that the plot limits will depend only on the range of predictor values}
 
 \item{correlation}{an optional \link{corStruct} object describing the within-group
 correlation structure. See the documentation of \link{corClasses} for a description of
@@ -76,7 +76,11 @@ Defaults to c('black','black').}
 \item{lwd}{A vector defining the line width of the regression lines for each category.
 Defaults to c(1,1).}
 
-\item{legend}{A logical indicating whether a legend should appear on top of the plot. Defaults to 'T'.}
+\item{legend}{A logical indicating whether a legend should appear on top of the plot. Defaults to 'TRUE'.}
+}
+\value{
+List with four elements: (1) results from the linear model, (2) lower and
+(3) upper limits of non-significance in the predictor, and (4) a graphical output.
 }
 \description{
 Produces a plot showing regions of non-significance defined by predictor values
@@ -88,4 +92,7 @@ data(microlophus)
 par(pty='s')
 jnt_cat(X='svl', Y='hl', m='species', data=microlophus,
 xlab='log(SVL)', ylab='log(head length)')
+#' @references Toyama, K. S. (2023). JNplots: an R package to visualize outputs
+from the Johnson-Neyman technique for categorical and continuous moderators,
+including options for phylogenetic regressions. bioRxiv, 2023-05.
 }

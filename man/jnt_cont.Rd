@@ -71,7 +71,7 @@ the gradient.}
 \value{
 List with six elements: (1) results from the linear model, (2) lower and
 (3) upper limits of (non)significance in the moderator, (4) lower and (5) upper
-data limit in the data, and (6) an graphical output.
+data limit in the data, and (6) a graphical output.
 }
 \description{
 Produces a plot showing how changes in the moderator affect the slope and

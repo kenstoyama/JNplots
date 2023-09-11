@@ -38,7 +38,7 @@
 
 0 errors ✔ | 0 warnings ✔ | 6 notes ✖
 
-## About notes
+# About notes
 
 Three of them correspond to this being a new submission. One note ("...no 
 command 'tidy' found") is obtained when testing with rhub on Ubuntu and is, 

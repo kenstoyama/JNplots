@@ -10,6 +10,7 @@ jnt_cont(
   Y,
   m,
   data,
+  alpha.sig = 0.05,
   correlation = NULL,
   res = 100,
   xlab = X,
@@ -35,6 +36,8 @@ Must be the same as the name of the variable in the dataset (see argument “dat
 The variable must be continuous.}
 
 \item{data}{A dataframe containing the variables in the model.}
+
+\item{alpha.sig}{A value representing the significance value (alpha) to be considered.}
 
 \item{correlation}{an optional \link{corStruct} object describing the within-group
 correlation structure. See the documentation of \link{corClasses} for a description of

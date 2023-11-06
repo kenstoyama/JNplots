@@ -10,6 +10,7 @@ jnt_cat(
   Y,
   m,
   data,
+  alpha.sig = 0.05,
   plot.full = FALSE,
   correlation = NULL,
   cols = c("black", "black"),
@@ -37,6 +38,8 @@ as the name of the variable in the dataset (see argument “data”). The
 variable must have two levels.}
 
 \item{data}{A dataframe containing the variables in the model.}
+
+\item{alpha.sig}{A value representing the significance value (alpha) to be considered.}
 
 \item{plot.full}{A logical. It indicates whether the plot should show the
 JN non-significance regions even if they don’t or just partially overlap the data.

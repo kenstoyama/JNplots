@@ -12,6 +12,7 @@
 #'  Must be the same as the name of the variable in the dataset (see argument “data”).
 #'  The variable must be continuous.
 #' @param data A dataframe containing the variables in the model.
+#' @param alpha.sig A value representing the significance value (alpha) to be considered.
 #' @param correlation an optional \link{corStruct} object describing the within-group
 #'  correlation structure. See the documentation of \link{corClasses} for a description of
 #'  the available corStruct classes. If a grouping variable is to be used, it must be
@@ -51,7 +52,7 @@
 #' including options for phylogenetic regressions. bioRxiv, 2023-05.
 #' @export
 
-jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=TRUE,
+jnt_cont <- function(X,Y,m,data,alpha.sig=0.05,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradient=TRUE,
                      sig_color="lightblue",nonsig_color="grey",max_col_grad="red",min_col_grad="blue",
                      legend=TRUE){
 
@@ -68,9 +69,11 @@ jnt_cont <- function(X,Y,m,data,correlation=NULL,res=100,xlab=X,ylab=Y,col.gradi
   var_coef3 <- varcov[4,4]
   cov_coefs1_3 <- varcov[2,4]
 
-  a <- (1.96^2)*(var_coef3)-(coef3)^2
-  b <- 2*((1.96^2)*(cov_coefs1_3)-(coef1*coef3))
-  c <- (1.96^2)*var_coef1-(coef1)^2
+  crit <- qt(p = alpha.sig/2, df = Inf)
+
+  a <- (crit^2)*(var_coef3)-(coef3)^2
+  b <- 2*((crit^2)*(cov_coefs1_3)-(coef1*coef3))
+  c <- (crit^2)*var_coef1-(coef1)^2
 
   x1 <- (-b-sqrt((b^2)-(4*a*c)))/(2*a)
   x2 <- (-b+sqrt((b^2)-(4*a*c)))/(2*a)

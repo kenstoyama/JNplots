@@ -14,6 +14,7 @@
 #'  as the name of the variable in the dataset (see argument “data”). The
 #'  variable must have two levels.
 #' @param data A dataframe containing the variables in the model.
+#' @param alpha.sig A value representing the significance value (alpha) to be considered.
 #' @param plot.full A logical. It indicates whether the plot should show the
 #'  JN non-significance regions even if they don’t or just partially overlap the data.
 #'  The default option is 'FALSE', meaning that the plot limits will depend only on the range of predictor values
@@ -58,7 +59,7 @@
 #' including options for phylogenetic regressions. bioRxiv, 2023-05.
 #' @export
 
-jnt_cat <- function(X,Y,m,data,plot.full=FALSE,correlation=NULL,cols=c("black","black"),pch=c(16,1),
+jnt_cat <- function(X,Y,m,data,alpha.sig=0.05,plot.full=FALSE,correlation=NULL,cols=c("black","black"),pch=c(16,1),
                     cex=1,xlab=X, ylab=Y, lty=c(1,2), line.col=c("black","black"),
                     lwd=c(1,1),legend=TRUE){
   na_sum <- (sum(is.na(data[,X])))+(sum(is.na(data[,Y])))+(sum(is.na(data$m)))
@@ -86,7 +87,7 @@ jnt_cat <- function(X,Y,m,data,plot.full=FALSE,correlation=NULL,cols=c("black","
   Y1 <- group1[,Y]
   Y2 <- group2[,Y]
 
-  Fcvalue <- qf(.95, df1=1, df2=n1+n2-4)
+  Fcvalue <- qf(1-alpha.sig, df1=1, df2=n1+n2-4)
   xmean1 <- mean(X1)
   xmean2 <- mean(X2)
   xmeansq1 <- mean((X1)^2)

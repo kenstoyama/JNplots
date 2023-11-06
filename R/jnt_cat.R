@@ -49,7 +49,7 @@
 #' @import nlme scales ape
 #' @importFrom grDevices colorRampPalette rgb recordPlot
 #' @importFrom graphics abline par points polygon
-#' @importFrom stats complete.cases na.omit qf vcov
+#' @importFrom stats complete.cases na.omit qf vcov qt
 #' @examples
 #' data(microlophus)
 #' jnt_cat(X='svl', Y='hl', m='species', data=microlophus,

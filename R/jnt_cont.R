@@ -43,10 +43,16 @@
 #' @importFrom graphics abline par points polygon
 #' @importFrom stats complete.cases na.omit qf vcov
 #' @examples
+#' #### non-phylogenetic model ####
 #' data(lizard_home_range)
 #' jnt_cont(X='PHR95_overlap_z', Y='hrsize95', m='degree_z',
 #' data=lizard_home_range, xlab = 'home range overlap 95',
 #' ylab='home range size 95')
+#'
+#' #### phylogenetic model ####
+#' jnt_cont(X='bio12', Y='back_bright', m='bio1', data=bird_colors,
+#' correlation=corPagel(1, tree_Furnariidae),xlab='precipitation (mm)',
+#' ylab='back brightness (scaled)',res=200)
 #' @references Toyama, K. S. (2023). JNplots: an R package to visualize outputs
 #' from the Johnson-Neyman technique for categorical and continuous moderators,
 #' including options for phylogenetic regressions. bioRxiv, 2023-05.

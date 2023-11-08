@@ -81,10 +81,16 @@ Produces a plot showing how changes in the moderator affect the slope and
 significance of the relationship between the dependent variable and the predictor.
 }
 \examples{
+#### non-phylogenetic model ####
 data(lizard_home_range)
 jnt_cont(X='PHR95_overlap_z', Y='hrsize95', m='degree_z',
 data=lizard_home_range, xlab = 'home range overlap 95',
 ylab='home range size 95')
+
+#### phylogenetic model ####
+jnt_cont(X='bio12', Y='back_bright', m='bio1', data=bird_colors,
+correlation=corPagel(1, tree_Furnariidae),xlab='precipitation (mm)',
+ylab='back brightness (scaled)',res=200)
 }
 \references{
 Toyama, K. S. (2023). JNplots: an R package to visualize outputs

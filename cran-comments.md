@@ -1,3 +1,37 @@
+# New release submission (24-11-2023)
+
+## Test environments
+- R-hub windows-x86_64-devel (r-devel)
+- R-hub ubuntu-gcc-release (r-release)
+- R-hub fedora-clang-devel (r-devel)
+
+## R CMD check results
+❯ On windows-x86_64-devel (r-devel)
+  checking for non-standard things in the check directory ... NOTE
+  Found the following files/directories:
+    ''NULL''
+
+❯ On windows-x86_64-devel (r-devel)
+  checking for detritus in the temp directory ... NOTE
+  Found the following files/directories:
+    'lastMiKTeXException'
+    
+❯ On fedora-clang-devel (r-devel)
+  checking HTML version of manual ... NOTE
+  Skipping checking HTML validation: no command 'tidy' found    
+
+❯ On ubuntu-gcc-release (r-release), fedora-clang-devel (r-devel)
+  checking HTML version of manual ... NOTE
+  Skipping checking HTML validation: no command 'tidy' found
+
+## About notes
+
+One note ("...no command 'tidy' found") is obtained when testing with 
+rhub on Ubuntu and Fedora and is, as far as I know, caused by problems with the testing 
+platform. The two notes obtained when testing on the Windows server seem to be 
+common and also caused by an issue with rhub. Local R CMD check results in no 
+errors, warnings, or notes.  
+  
 # New submission (11-09-2023)
 
 ## Test environments

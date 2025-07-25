@@ -45,8 +45,8 @@ variable must have two levels.}
 JN non-significance regions even if they don’t or just partially overlap the data.
 The default option is 'FALSE', meaning that the plot limits will depend only on the range of predictor values}
 
-\item{correlation}{an optional \link{corStruct} object describing the within-group
-correlation structure. See the documentation of \link{corClasses} for a description of
+\item{correlation}{an optional corStruct object describing the within-group
+correlation structure. See the documentation of \link[nlme]{corClasses} for a description of
 the available corStruct classes. If a grouping variable is to be used, it must be
 specified in the form argument to the corStruct constructor. Defaults to NULL,
 corresponding to uncorrelated errors.}

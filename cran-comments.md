@@ -1,9 +1,19 @@
 # New release submission (after archiving) (25-07-2025)
 
-## Test environments
-- R-hub windows-x86_64-devel (r-devel)
-- R-hub ubuntu-gcc-release (r-release)
-- R-hub fedora-clang-devel (r-devel)
+## Test environments (through rhub)
+- linux (R-devel)
+- macos (R-devel)
+- windows (R-devel)
+
+## check results
+❯ On linux (R-devel)
+Status: Ok
+
+❯ On macos (R-devel)
+Status: Ok
+
+❯ On windows (R-devel)
+Status: Ok
 
 # New release submission (24-11-2023)
 

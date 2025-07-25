@@ -54,9 +54,9 @@
 #' data(microlophus)
 #' jnt_cat(X='svl', Y='hl', m='species', data=microlophus,
 #' xlab='log(SVL)', ylab='log(head length)')
-#' @references Toyama, K. S. (2023). JNplots: an R package to visualize outputs
+#' @references Toyama, K. S. (2024). JNplots: an R package to visualize outputs
 #' from the Johnson-Neyman technique for categorical and continuous moderators,
-#' including options for phylogenetic regressions. bioRxiv, 2023-05.
+#' including options for phylogenetic regressions. Evolutionary Ecology 38: 371–385.
 #' @export
 
 jnt_cat <- function(X,Y,m,data,alpha.sig=0.05,plot.full=FALSE,correlation=NULL,cols=c("black","black"),pch=c(16,1),

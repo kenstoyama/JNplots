@@ -93,7 +93,7 @@ correlation=corPagel(1, tree_Furnariidae),xlab='precipitation (mm)',
 ylab='back brightness (scaled)',res=200)
 }
 \references{
-Toyama, K. S. (2023). JNplots: an R package to visualize outputs
+Toyama, K. S. (2024). JNplots: an R package to visualize outputs
 from the Johnson-Neyman technique for categorical and continuous moderators,
-including options for phylogenetic regressions. bioRxiv, 2023-05.
+including options for phylogenetic regressions. Evolutionary Ecology 38: 371–385.
 }

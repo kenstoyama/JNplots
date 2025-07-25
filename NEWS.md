@@ -1,3 +1,10 @@
+# JNplots 0.1.2 (25-07-2025)
+
+* New release.
+- Previous release was archived due to the inability to reach me through an old email to solve some issues. A new email, specified in the DESCRIPTION file, is now associated with the package.
+- Missing package anchors have been added to Rd files.
+- Package reference has been updated.
+
 # JNplots 0.1.1 (24-11-2023)
 
 * New release.
